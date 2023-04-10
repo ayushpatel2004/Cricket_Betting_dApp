@@ -1,8 +1,9 @@
 import { Button, Card, CardActions, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Mycard=({match})=>{
-
+    const navigate = useNavigate();
     const getMatchCard=()=>{
         return (
             <Card>
@@ -25,11 +26,8 @@ const Mycard=({match})=>{
                 </CardContent>
                 <CardActions>
                     <Grid container justifyContent={"center"}>
-                        <Button variant="contained">
-                            Show Details
-                        </Button>
-                        <Button variant="contained">
-                            {new Date().toString()}
+                        <Button onClick={() => navigate('matchresult')} variant="contained">
+                            Close Match
                         </Button>
                     </Grid>
                 </CardActions>
