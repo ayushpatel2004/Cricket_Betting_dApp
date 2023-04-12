@@ -12,15 +12,15 @@ async function main() {
 
   const lockedAmount = hre.ethers.utils.parseEther("0.001");
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const Wrapper = await hre.ethers.getContractFactory("Wrapper");
+  const wrapper = await Wrapper.deploy();
 
-  await lock.deployed();
+  await wrapper.deployed();
 
   console.log(
     `Lock with ${ethers.utils.formatEther(
       lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+    )}ETH and unlock timestamp ${unlockTime} deployed to ${wrapper.address}`
   );
 }
 
@@ -30,3 +30,5 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+
+// 0xdEE15e07e6D1a7799855F833808bC4EF8351b551
