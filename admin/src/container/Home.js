@@ -10,10 +10,11 @@ const Home=()=>{
     return (
         <div>
             <Button onClick={() => navigate('matchinput')} variant="contained">Create Match</Button>
-            {(!currentAccount)&&<Button onClick={connectWallet} variant="contained">Connect Wallet</Button>}
+            {(!currentAccount) && 
+                <Button onClick={connectWallet} variant="contained">Connect Wallet</Button>
+            }
             {
                 matchinfolist.map((match,i)=>{
-                    
                     return <Mycard key={i}{...match}/>
                 })
             }

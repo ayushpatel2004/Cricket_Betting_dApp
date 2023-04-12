@@ -1,0 +1,75 @@
+h1{
+    color: white;
+}
+
+.btn{
+    width: fit-content;
+    height: fit-content;
+    border-width: 2px;
+    border-radius: 20px;
+    margin: 5px;
+    font-family: var(--font-family);
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn:focus{
+    background:#6c757d;
+    color: black;
+    font-weight:bold;
+    border-color: black;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+}
+.bet{
+    display: flex;
+    justify-content: space-around;
+}
+.playerbet{
+    font-size:64px;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    padding-bottom: 50px;
+    font-family: var(--font-family);
+
+}
+h1{
+    margin-bottom: 30px;
+    font-family: var(--font-family);
+}
+.vs{
+    height: 28vh;
+    width: 28vh;
+    border-radius: 50%;
+    border: 0.2rem solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color:#000000;
+    position: fixed;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
+    box-shadow: 0 0 20px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
+}
+
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+}

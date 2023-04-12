@@ -1,24 +1,26 @@
 import React from 'react';
-import {BrowserRouter as Router,Route, Swith, Link, BrowserRouter, Routes} from "react-router-dom";
 import Home from './pages/home';
-import Landing from './pages/landing_page';
-import {Navbar, Header} from './containers';
+import { Routes, Route } from "react-router-dom";
+import Landing from './pages/Landing';
+import Player from './pages/player';
+import Team from './pages/team';
+import AmountMatch from './pages/amount_team';
+import AmountPlayer from './pages/amount_player';
 
 
 import './App.css';
 
 const App = () => (
-
-  <BrowserRouter>
-  <Routes>
-    <Route path = "/" element = {Landing}/>
-  </Routes>
-
-  {/* <Landing/> */}
-  <Home/>
-   {/* <Navbar/>
-  <Header/> */}
-  </BrowserRouter>
+  <>
+    <Routes>
+      <Route exact path="/" element={<Landing/>} />
+      <Route exact path="/home" element={<Home/>} />
+      <Route exact path="/home/playerbet" element={<Player/>} />
+      <Route exact path="/home/teambet" element={<Team/>} />
+      <Route exact path="/home/teambet/transactionmatch" element={<AmountMatch/>} />
+      <Route exact path="/home/playerbet/transactionplayer" element={<AmountPlayer/>} />
+    </Routes>
+  </>
 );
 
 export default App;

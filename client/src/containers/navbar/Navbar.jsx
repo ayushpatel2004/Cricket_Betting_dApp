@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../assets/logo.svg';
 import './navbar.css';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   	const [toggleMenu, setToggleMenu] = useState(false);
+	const navigate = useNavigate();
   	return (
 		<div className="crickbet__navbar">
 			<div className="crickbet__navbar-links">
