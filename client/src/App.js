@@ -1,23 +1,24 @@
 import React from 'react';
+import {BrowserRouter as Router,Route, Swith, Link, BrowserRouter, Routes} from "react-router-dom";
+import Home from './pages/home';
+import Landing from './pages/landing_page';
+import {Navbar, Header} from './containers';
 
-import { Navbar, Header } from './containers';
 
 import './App.css';
 
 const App = () => (
-  <div className="App">
-    <div className="gradient__bg">
-      <Navbar />
-      <Header />
-    </div>
-    {/* <Brand />
-    <WhatGPT3 />
-    <Features />
-    <Possibility />
-    <CTA />
-    <Blog />
-    <Footer /> */}
-  </div>
+
+  <BrowserRouter>
+  <Routes>
+    <Route path = "/" element = {Landing}/>
+  </Routes>
+
+  {/* <Landing/> */}
+  <Home/>
+   {/* <Navbar/>
+  <Header/> */}
+  </BrowserRouter>
 );
 
 export default App;

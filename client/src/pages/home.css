@@ -1,0 +1,202 @@
+  
+  .gradient__text {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--font-family);
+  }
+  .center_align {
+    text-align: center;
+    margin-top: 1.2rem;
+  }
+
+  .custom_background {
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+  }
+
+  .gradient__bg {
+    background:-moz-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
+  
+    /* safari 5.1+,chrome 10+ */
+    background:-webkit-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
+  
+    /* opera 11.10+ */
+    background:-o-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
+  
+    /* ie 10+ */
+    background:-ms-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
+  
+    /* global 92%+ browsers support */
+    background:radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
+
+    overflow-y: scroll;
+  }
+
+  .color_text{
+    color: white;
+    text-align: center;
+    /* padding-left: 3.6%; */
+    padding-top: 7%;
+    padding-bottom: 4%;
+    /* display: inline-block; */
+  }
+  
+  .match_button{ 
+      display:block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      /* background-image: radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% ); */
+      font-size: 16px;
+      text-align: left;
+      width: 60%;
+      align-content: baseline;
+      margin: 1%;
+      font-style: normal;
+      font-size: medium;
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  }
+
+  .match_button:hover {
+    background-color: blueviolet;
+  }
+
+  .match_list_allignment{
+    /* scroll-behavior: smooth; */
+    /* display: inline-block; */
+    /* padding-top: 2%; */
+    /* padding-left: 10%; */
+    margin-left: 10%;
+    align-items: center;
+    display: list-item;
+    /* overflow-y: scroll; */
+  }
+
+  .dropdown {
+    margin-left: 3%;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    width: max-content;
+    /* display: inline-block; */
+    float: right;
+
+  }
+
+  ul {
+    /* list-style: upper-roman; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .only_button_pos {
+    padding-left: 5%;
+  }
+
+
+.placement_of_match_details_1{
+  display: inline-block;
+  margin-right: 5%;
+}
+
+.placement_of_match_details_2{
+  display: inline-block;
+  margin-left: 2%;
+  margin-right: 5%;
+  font-size: larger;
+  font-weight: bold;
+  font-style: oblique;
+}
+
+.placement_of_match_details_3{
+  display: inline-block;
+  margin-left: 2%;
+  margin-right: 5%
+}
+.vertical_rule{
+  height: 60px;
+  /* color: black; */
+  display: inline-block;
+  position:absolute;
+  border-left: 1px solid white;
+  
+}
+
+.new_text{
+    color:white;
+    font-family: var(--font-family);
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.bet_type_list{
+  display: inline-block;
+  margin-right: 0%;
+  
+}
+
+         
+.btn-grad-small {
+  background-image: linear-gradient(to right, #4b6cb7 0%, #182848  51%, #4b6cb7  100%);
+  margin: 10px;
+  margin-top: 0px;
+  padding: 5px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.btn-grad-small:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+         
+.btn-grad {
+  background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  border-radius: 10px;
+  display: block;
+  padding: 10px 20px;
+      border-radius: 10px;
+      /* background-image: radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% ); */
+      font-size: 16px;
+      text-align: left;
+      width: 80%;
+      align-content: baseline;
+      margin: 3%;
+      color: #fff;
+      height: max-content;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
