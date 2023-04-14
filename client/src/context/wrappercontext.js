@@ -38,6 +38,8 @@ export const WrapperProvider = ({ children }) => {
 
     const [currentAccount, setCurrentAccount] = useState("");
     const [matchinfolist, setmatchinfolist] = useState([]);
+    const [completedmatchlist,setcompletedmathlist] = useState([]);
+
     const [selectedmatch,setselectedmatch] = useState(null);
     const [playerlist1,setplayerlist1] = useState([]);
     const [playerlist2,setplayerlist2] = useState([]);
@@ -46,24 +48,18 @@ export const WrapperProvider = ({ children }) => {
     const [betvalue,setbetvalue] = useState(0);
     const [playercontractselected,setplayercontractselected] =useState(null);
     const [selectedplayer,setselectedplayer] = useState("");
+    const [loadingteambet,setloadingteambet] = useState(false);
+    const [loadingplayerbet,setloadingplayerbet] = useState(false);
 
     useEffect(()=>{
         try {
         if (!ethereum) return alert("Please install MetaMask.");
 
-        // while(selectedmatch==null) ;
-
-        // console.log(selectedmatch);
-
         if(selectedmatch==null) return;
 
         const playercontractaddress = selectedmatch.getplayercontract();
 
-        console.log(playercontractaddress);
-
         const playercontract = createEthereumContractPlayer(playercontractaddress);
-
-        console.log(playercontract);
 
         playercontract.viewplayer().then((res)=>{
             setplayerlist1(res.player_info_team1);
@@ -71,8 +67,6 @@ export const WrapperProvider = ({ children }) => {
         });
 
         setplayercontractselected(playercontract);
-        // setplayerlist1(value.player_info_team1);
-        // setplayerlist2(value.player_info_team2);
             
         } catch (error) {
             
@@ -82,49 +76,22 @@ export const WrapperProvider = ({ children }) => {
         }
     },[selectedmatch])
 
-    const getplayerlist = async () => {
-        try {
-        if (!ethereum) return alert("Please install MetaMask.");
-
-        // while(selectedmatch==null) ;
-
-        console.log(selectedmatch);
-
-        // const playercontractaddress = selectedmatch.getplayercontract();
-
-        // console.log(playercontractaddress);
-
-        // const playercontract = createEthereumContractPlayer(playercontractaddress);
-
-        // console.log(playercontract);
-
-        // const value = playercontract.viewplayer();
-
-        // console.log(value);
-        // setplayerlist1(value.player_info_team1);
-        // setplayerlist2(value.player_info_team2);
-            
-        } catch (error) {
-            
-        console.log(error);
-  
-        throw new Error("No ethereum object");
-        }
-    }
-
     const activematchlist = async () => {
       try {
         if (ethereum) {
           const WrapperContract = createEthereumContractWrapper();
 
           const activematchcontractaddress = await WrapperContract.viewlivematches();
+
           const livematchescontracts =[];
           for (let index = 0; index < activematchcontractaddress.length; index++) {
             const element = activematchcontractaddress[index];
+            console.log(element);
             if(element!=0)
             livematchescontracts.push(createEthereumContractMatch(element));
           }
           const list =[];
+          console.log(livematchescontracts);
           for (let index = 0; index < livematchescontracts.length; index++) {
             const element = await livematchescontracts[index].viewmatch();
             list.push({
@@ -134,6 +101,30 @@ export const WrapperProvider = ({ children }) => {
             });
           }
           setmatchinfolist(list);
+          const completedmatchaddress = await WrapperContract.viewclosematches();
+          console.log(completedmatchaddress);
+
+          const completedmatchcontract = [];
+
+          for (let index = completedmatchaddress.length-1; index >=0; index--) {
+            const element = completedmatchaddress[index];
+            console.log(element);
+            completedmatchcontract.push(createEthereumContractMatch(element));
+          }
+          console.log(completedmatchcontract);
+          const listcompleted = [];
+          for (let index = 0; index < completedmatchcontract.length; index++) {
+            const element = await completedmatchcontract[index].viewmatch();
+            const amount = await completedmatchcontract[index].amountrefunded();
+            listcompleted.push({
+              team1: element.team1,
+              team2: element.team2,
+              refundamount: ethers.utils.formatEther(parseInt(amount._hex).toString())
+            });
+          }
+          console.log(listcompleted);
+
+          setcompletedmathlist(listcompleted);
 
         }
       } catch (error) {
@@ -153,7 +144,6 @@ export const WrapperProvider = ({ children }) => {
           if (accounts.length) {
             setCurrentAccount(accounts[0]);
 
-            // activematchlist();
           } else {
             console.log("No accounts found");
           }
@@ -164,8 +154,10 @@ export const WrapperProvider = ({ children }) => {
 
     useEffect(() => {
         checkIfWalletIsConnect();
+        if(!loadingplayerbet && !loadingteambet){
         activematchlist();
-      }, []);
+        }
+      }, [loadingplayerbet,loadingteambet]);
 
     const connectWallet = async () => {
         try {
@@ -185,15 +177,13 @@ export const WrapperProvider = ({ children }) => {
     const placeteambet = async () => {
         try {
             if (!ethereum) return alert("Please install MetaMask.");
-
-            console.log(betvalue);
-            console.log(selectedteam);
-
+            setloadingteambet(true);
             const check = selectedteam===selectedmatchdetails.team1?true:false;
-
+            
             const placebethash = await selectedmatch.placebet(check,{value:ethers.utils.parseEther(betvalue)});
-
+            
             await placebethash.wait();
+            setloadingteambet(false);
 
             console.log("bet placed");
         } catch (error) {
@@ -205,15 +195,11 @@ export const WrapperProvider = ({ children }) => {
     const placeplayerbet = async () => {
         try {
             if (!ethereum) return alert("Please install MetaMask.");
-
-            console.log(betvalue);
-            console.log(selectedplayer);
-
-            // const check = selectedteam===selectedmatchdetails.team1?true:false;
-
+            setloadingplayerbet(true);
             const placebethash = await playercontractselected.placebet(selectedplayer,{value:ethers.utils.parseEther(betvalue)});
-
+            
             await placebethash.wait();
+            setloadingplayerbet(false);
 
             console.log("bet placed");
         } catch (error) {
@@ -229,7 +215,6 @@ export const WrapperProvider = ({ children }) => {
             currentAccount,
             matchinfolist,
             setselectedmatch,
-            getplayerlist,
             playerlist1,
             playerlist2,
             selectedmatch,
@@ -242,7 +227,10 @@ export const WrapperProvider = ({ children }) => {
             placeteambet,
             setselectedplayer,
             selectedplayer,
-            placeplayerbet
+            placeplayerbet,
+            loadingteambet,
+            loadingplayerbet,
+            completedmatchlist
         }}>
             {children}
         </WrapperContext.Provider>

@@ -3,7 +3,6 @@ import React,{useEffect,useState} from 'react'
 import { contractAddress, contractABI_Match, contractABI_Wrapper, contractABI_Player} from '../utils/constants'
 
 import { ethers } from 'ethers';
-// const ethers = require("ethers")
 
 export const WrapperContext = React.createContext();
 
@@ -44,6 +43,8 @@ export const WrapperProvider = ({ children }) => {
     const [winningteam,setwinningteam] = useState("");
     const [winningplayers,setwinningplayers] = useState({player1:"",player2:"",player3:"",});
     const [selectedmatch,setselectedmatch] = useState("");
+    const [loadingmatchcreate,setloadingmatchcreate] = useState(false);
+    const [loadingmatchclose,setloadingmatchclose] = useState(false);
 
     const handleChange = (e, name) => {
       setFormDataMatchinfo((prevState) => ({ ...prevState, [name]: e.target.value }));
@@ -71,7 +72,6 @@ export const WrapperProvider = ({ children }) => {
           const WrapperContract = createEthereumContractWrapper();
 
           const activematchcontractaddress = await WrapperContract.viewlivematches();
-          // console.log(activematchcontractaddress);
           const livematchescontracts =[];
           for (let index = 0; index < activematchcontractaddress.length; index++) {
             const element = activematchcontractaddress[index];
@@ -87,10 +87,7 @@ export const WrapperProvider = ({ children }) => {
               contract: livematchescontracts[index]
             });
           }
-          // console.log(list);
           setmatchinfolist(list);
-
-          // window.location.reload();
         }
       } catch (error) {
         console.log(error);
@@ -119,9 +116,11 @@ export const WrapperProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        checkIfWalletIsConnect();
+      checkIfWalletIsConnect();
+      if(!loadingmatchclose && !loadingmatchcreate){
         activematchlist();
-      }, [matchinfolist]);
+      }
+      }, [loadingmatchclose,loadingmatchcreate]);
 
     const connectWallet = async () => {
         try {
@@ -176,42 +175,20 @@ export const WrapperProvider = ({ children }) => {
           playerlist2.push(team2_player10);
           playerlist2.push(team2_player11);
 
-          // const playername1 = formDataPlayer1info.map((player)=>console.log(player));
 
           console.log(playerlist1);
           console.log(playerlist2);
 
           const WrapperContract = createEthereumContractWrapper();
 
+          setloadingmatchcreate(true);
+          
           const Wrapperhash = await WrapperContract.createbet(team1,team2,playerlist1,playerlist2);
-
+          
           await Wrapperhash.wait();
+          setloadingmatchcreate(false);
 
           window.location.reload();
-
-          // const livematches = await WrapperContract.viewlivematches();
-          
-          // console.log(livematches);
-          // const livematchescontracts = livematches.map( (match)=> createEthereumContractMatch(match));
-
-          // console.log(livematchescontracts);
-
-          // const livematchesinfo = livematchescontracts.map(async (match) => await match.viewmatch());
-
-          // console.log(livematchesinfo);
-
-          // const playercontractsadd = livematchescontracts.map(async (match) => await match.getplayercontract());
-
-          // console.log(playercontractsadd);
-
-          // const playercontract = playercontractsadd.map((player)=>createEthereumContractPlayer(player));
-
-          // console.log(playercontract);
-
-          // const matchplayers = playercontract.map(async (player)=>await player.viewplayer());
-
-          // console.log(matchplayers);
-
         } catch(error){
           console.log(error);
     
@@ -231,17 +208,12 @@ export const WrapperProvider = ({ children }) => {
 
           const {player1,player2,player3} = winningplayers;
 
-          // console.log(check);
-
-          // console.log("Printing before");
-
-          // console.log(selectedmatch.contract.address);
+          setloadingmatchclose(true);
           
           const closebethash = await WrapperContract.closeBet(selectedmatch.contract.address,check,player1,player2,player3);
-          console.log("Printing after");
           
           await closebethash.wait();
-          console.log("Printing after after");
+          setloadingmatchclose(false);
 
           window.location.reload();
 

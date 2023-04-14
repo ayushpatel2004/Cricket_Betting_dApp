@@ -6,4 +6,4 @@ import abiplayer from './Player.json'
 export const contractABI_Wrapper = abiwrapper.abi;
 export const contractABI_Match = abimatch.abi;
 export const contractABI_Player = abiplayer.abi;
-export const contractAddress = '0xa826A8f6d829813789361344845c7E33048717DD';
+export const contractAddress = '0x4D9835A746bcBb46A94fE4b5B08d6BedccF97cE4';

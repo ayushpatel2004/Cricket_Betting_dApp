@@ -5,6 +5,7 @@ contract Wrapper{
     address payable owner;
 
     Match [] matches_bet;
+    Match [] matches_complete;
     constructor(){
         owner = payable(msg.sender);
     }
@@ -19,6 +20,10 @@ contract Wrapper{
         return matches_bet;
     }
 
+    function viewclosematches() public view returns(Match[] memory){
+        return matches_complete;
+    }
+
     function closeBet(Match closeMatch, bool result, string memory first, string memory second, string memory third) public{
         uint temp;
         for(uint i = 0; i < matches_bet.length; i++){
@@ -26,6 +31,7 @@ contract Wrapper{
                 temp = i;
             }
         }
+        matches_complete.push(matches_bet[temp]);
         delete matches_bet[temp];
         closeMatch.poolDistribution(result, first, second, third);
     }
@@ -45,7 +51,7 @@ contract Match{
         string team1;
         string team2;
     }
-
+    mapping (address => uint) refundamount;
     MatchInfo matches;
 
     event betplaced(address sender,uint amount);
@@ -75,6 +81,11 @@ contract Match{
 
     function viewbets() public view returns(address payable[] memory){
         return betters_wallet_address;
+    }
+
+    function amountrefunded() public view returns(uint){
+        uint playerrefund=playingXI.amountrefundedplayer(msg.sender);
+        return refundamount[msg.sender]+playerrefund;
     }
 
     function poolDistribution(bool result, string memory first, string memory second, string memory third) public {
@@ -120,13 +131,14 @@ contract Match{
         }
         for(uint i = 0; i < n; i++){
             betters_wallet_address[i].transfer(customerRefund[i]);
+            // address temp = betters_wallet_address[i];
+            refundamount[betters_wallet_address[i]]+=customerRefund[i];
         }
+        refundamount[owner]+=address(this).balance;
         owner.transfer(address(this).balance);
     }
 
 }
-// ["AB", "CD", "EF", "GH"]
-// [true, false, true, false]
 contract Player {
     address payable owner;
 
@@ -139,6 +151,8 @@ contract Player {
         string [] player_info_team1;
         string [] player_info_team2;
     }
+
+    mapping (address => uint) refundamount;
 
     PlayerInfo players;
 
@@ -163,6 +177,10 @@ contract Player {
 
     function viewbets() public view returns(address payable[] memory){
         return betters_wallet_address;
+    }
+
+    function amountrefundedplayer(address sender) public view returns(uint){
+        return refundamount[sender];
     }
 
     function poolDistribution(string memory first, string memory second, string memory third) public {
@@ -207,8 +225,9 @@ contract Player {
         }
         for(uint i = 0; i < n; i++){
             betters_wallet_address[i].transfer(customerRefund[i]);
+            refundamount[betters_wallet_address[i]]+=customerRefund[i];
         }
+        refundamount[owner]+=address(this).balance;
         owner.transfer(address(this).balance);
     }
 }
-// 0xa826A8f6d829813789361344845c7E33048717DD

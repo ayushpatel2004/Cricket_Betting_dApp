@@ -16,17 +16,13 @@ const Result=()=>{
     
     const onsubmit = async (e) => {
         const {player1,player2,player3} = winningplayers;
-        // console.log(winningplayers);
         
         e.preventDefault();
-        // console.log(player1);
         if(!winningteam || !player1 ||!player2||!player3) return;
 
-        console.log("before submitting");
         await closeMatch();
 
         navigate(-1);
-        // window.location.reload();
     }
     return (
         <form>
