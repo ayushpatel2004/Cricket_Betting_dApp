@@ -1,0 +1,30 @@
+.ongoing{
+    height: 5vh;
+    width: 100vw;
+    color: red;
+    font-family: var(--font-family);
+    font-size:64px;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    
+}
+
+.createMatch{
+    padding: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.match-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+.list{
+    height:87vh;
+}
