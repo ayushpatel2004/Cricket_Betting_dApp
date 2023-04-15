@@ -43,6 +43,23 @@
     text-transform: capitalize;
     margin: 0 1rem;
     cursor: pointer;
+    background-color: #AE67FA;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.crickbet__navbar-links_container p:hover {
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin: 0 1rem;
+    cursor: pointer;
+    background-color: #FF4C4C;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
 }
 
 .crickbet__navbar-sign button,

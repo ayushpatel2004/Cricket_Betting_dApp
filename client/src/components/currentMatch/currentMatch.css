@@ -13,6 +13,12 @@
     position: relative;
   }
   
+  .match-card:hover {
+    background: #c0392b;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #8e44ad, #97483f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #8e44ad, #b65247);
+  }
+
   .match-card h2 {
     font-size: 24px;
     height: 70px;
