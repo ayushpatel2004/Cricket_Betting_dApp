@@ -5,10 +5,11 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { WrapperContext } from "../context/wrappercontext";
+import Loader from '../components/Loader';
 
 const Result=()=>{
     const navigate = useNavigate();
-    const {winningteam,setwinningteam,selectedmatch,closeMatch,winningplayers,handleChangeList} = useContext(WrapperContext);
+    const {winningteam,setwinningteam,selectedmatch,closeMatch,winningplayers,handleChangeList,loadingmatchclose} = useContext(WrapperContext);
     
     const handleChange = (SelectChangeEvent) => {
         setwinningteam(SelectChangeEvent.target.value);
@@ -25,6 +26,8 @@ const Result=()=>{
         navigate(-1);
     }
     return (
+        <div>
+        {loadingmatchclose?<Loader/>:
         <form>
             <label>
                 Winning Team:
@@ -33,7 +36,7 @@ const Result=()=>{
                     labelId="demo-select-small"
                     id="demo-select-small"
                     onChange={handleChange}
-                >
+                    >
                     <MenuItem value="">
                     <em>None</em>
                     </MenuItem>
@@ -59,7 +62,8 @@ const Result=()=>{
             </label>
             <br></br>
             <input onClick={onsubmit} type="submit" value="Submit" />
-        </form>
+        </form>}
+        </div>
     )
 }
 

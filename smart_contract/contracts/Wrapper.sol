@@ -10,8 +10,8 @@ contract Wrapper{
         owner = payable(msg.sender);
     }
 
-    function createbet(string memory team1_input,string memory team2_input, string [] memory player_info_team1_input, string [] memory player_info_team2_input) public returns (Match) {
-        Match newMatch = new Match(owner,team1_input,team2_input,player_info_team1_input,player_info_team2_input);
+    function createbet(string memory team1_input,string memory team2_input,string memory time_input,string memory date_input,string memory venue_input, string [] memory player_info_team1_input, string [] memory player_info_team2_input) public returns (Match) {
+        Match newMatch = new Match(owner, team1_input, team2_input, time_input, date_input, venue_input, player_info_team1_input, player_info_team2_input);
         matches_bet.push(newMatch);
         return newMatch;
     }
@@ -50,6 +50,9 @@ contract Match{
     struct MatchInfo{
         string team1;
         string team2;
+        string time;
+        string date;
+        string venue;
     }
     mapping (address => uint) refundamount;
     MatchInfo matches;
@@ -57,10 +60,10 @@ contract Match{
     event betplaced(address sender,uint amount);
 
 
-    constructor(address payable ownercontract, string memory team1_input,string memory team2_input, string [] memory player_info_team1_input, string [] memory player_info_team2_input){
+    constructor(address payable ownercontract, string memory team1_input,string memory team2_input,string memory time_input,string memory date_input,string memory venue_input, string [] memory player_info_team1_input, string [] memory player_info_team2_input){
         owner = ownercontract;
-        matches = MatchInfo(team1_input,team2_input);
-        playingXI = new Player(ownercontract,player_info_team1_input,player_info_team2_input);
+        matches = MatchInfo(team1_input, team2_input, time_input, date_input, venue_input);
+        playingXI = new Player(ownercontract, player_info_team1_input, player_info_team2_input);
     }
 
     function viewmatch() public view returns(MatchInfo memory){

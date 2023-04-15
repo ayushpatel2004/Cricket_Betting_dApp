@@ -2,10 +2,11 @@ import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 // import React, { useContext } from 'react'
 import { WrapperContext } from '../context/wrappercontext'
+import Loader from '../components/Loader';
 
 const Amount_Player = () => {
   const navigate = useNavigate();
-  const {setbetvalue,betvalue,placeplayerbet,selectedplayer} = useContext(WrapperContext);
+  const {setbetvalue,betvalue,placeplayerbet,selectedplayer,loadingplayerbet,} = useContext(WrapperContext);
   const placebetplayer =async (e) => {
     e.preventDefault();
     if(betvalue==0) return;
@@ -23,7 +24,8 @@ const Amount_Player = () => {
     setbetvalue(e.target.value);
   }
   return (
-    <>
+    <div>{
+      loadingplayerbet?<Loader/>:
         <form>
             <label>
                 Amount:
@@ -32,7 +34,8 @@ const Amount_Player = () => {
             <br></br>
             <input type="submit" value="Submit" onClick={placebetplayer}/>
         </form>
-    </>
+    }
+    </div>
   )
 }
 

@@ -48,8 +48,12 @@ export const WrapperProvider = ({ children }) => {
     const [betvalue,setbetvalue] = useState(0);
     const [playercontractselected,setplayercontractselected] =useState(null);
     const [selectedplayer,setselectedplayer] = useState("");
+
     const [loadingteambet,setloadingteambet] = useState(false);
     const [loadingplayerbet,setloadingplayerbet] = useState(false);
+    const [loadingplayerdisplay,setloadingplayerdisplay] = useState(false);
+    const [loadingactivematch,setloadingactivematch] = useState(false);
+    const [loadingcompletedmatch,setloadingcompletedmatch] = useState(false);
 
     useEffect(()=>{
         try {
@@ -67,6 +71,8 @@ export const WrapperProvider = ({ children }) => {
         });
 
         setplayercontractselected(playercontract);
+
+        setloadingplayerdisplay(false);
             
         } catch (error) {
             
@@ -80,6 +86,9 @@ export const WrapperProvider = ({ children }) => {
       try {
         if (ethereum) {
           const WrapperContract = createEthereumContractWrapper();
+
+          setloadingactivematch(true);
+          setloadingcompletedmatch(true);
 
           const activematchcontractaddress = await WrapperContract.viewlivematches();
 
@@ -97,12 +106,15 @@ export const WrapperProvider = ({ children }) => {
             list.push({
               team1: element.team1,
               team2: element.team2,
+              venue: element.venue,
+              time: element.time,
+              date: element.date,
               contract: livematchescontracts[index]
             });
           }
           setmatchinfolist(list);
+          setloadingactivematch(false);
           const completedmatchaddress = await WrapperContract.viewclosematches();
-          console.log(completedmatchaddress);
 
           const completedmatchcontract = [];
 
@@ -119,12 +131,16 @@ export const WrapperProvider = ({ children }) => {
             listcompleted.push({
               team1: element.team1,
               team2: element.team2,
+              venue: element.venue,
+              time: element.time,
+              date: element.date,
               refundamount: ethers.utils.formatEther(parseInt(amount._hex).toString())
             });
           }
           console.log(listcompleted);
 
           setcompletedmathlist(listcompleted);
+          setloadingcompletedmatch(false);
 
         }
       } catch (error) {
@@ -230,7 +246,11 @@ export const WrapperProvider = ({ children }) => {
             placeplayerbet,
             loadingteambet,
             loadingplayerbet,
-            completedmatchlist
+            completedmatchlist,
+            setloadingplayerdisplay,
+            loadingplayerdisplay,
+            loadingactivematch,
+            loadingcompletedmatch
         }}>
             {children}
         </WrapperContext.Provider>

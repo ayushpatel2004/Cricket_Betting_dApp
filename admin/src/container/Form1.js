@@ -2,6 +2,8 @@ import { Button } from "@mui/material";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { WrapperContext } from "../context/wrappercontext";
+import Loader from "../components/Loader";
+
 
 const Form1=()=>{
     const navigate = useNavigate();
@@ -10,7 +12,9 @@ const Form1=()=>{
         handleChangePlayer2,
         formDataMatchinfo,
         formDataPlayer1info,
-        formDataPlayer2info} = useContext(WrapperContext);
+        formDataPlayer2info,loadingmatchcreate,setformvenueinfo,
+        setformdateinfo,
+        setformtimeinfo} = useContext(WrapperContext);
 
     const handlesubmit=async (e)=>{
         const {team1,team2} = formDataMatchinfo;
@@ -18,13 +22,6 @@ const Form1=()=>{
         e.preventDefault();
 
         console.log(formDataMatchinfo);
-        // const playername1 = formDataPlayer1info.map((player)=>c);
-        // console.log(formDataPlayer2info);
-        
-
-        // console.log(playerlist1);
-
-        // const playerlist1=[];
 
         const {team1_player1,team1_player2,team1_player3,team1_player4,team1_player5,team1_player6,team1_player7,team1_player8,team1_player9,team1_player10,team1_player11} = formDataPlayer1info;
 
@@ -41,6 +38,8 @@ const Form1=()=>{
         navigate(-1);
     }
     return (
+        <div>
+        {loadingmatchcreate?<Loader/>:
         <form>
             <label>
                 Team1:
@@ -162,8 +161,24 @@ const Form1=()=>{
                 <input required type="text" name="team2_player11" onChange={(e) => handleChangePlayer2(e, "team2_player11")}/>
             </label>
             <br></br>
+            <label>
+                Venue:
+                <input required type="text" name="venue" onChange={(e)=>setformvenueinfo(e.target.value)}/>
+            </label>
+            <br></br>
+            <label>
+                Date:
+                <input required type="text" name="date" onChange={(e)=>setformdateinfo(e.target.value)}/>
+            </label>
+            <br></br>
+            <label>
+                Time:
+                <input required type="text" name="time" onChange={(e)=>setformtimeinfo(e.target.value)}/>
+            </label>
+            <br></br>
             <input onClick={handlesubmit} type="submit" value="Submit" />
-        </form>
+        </form>}
+            </div>
     )
 }
 

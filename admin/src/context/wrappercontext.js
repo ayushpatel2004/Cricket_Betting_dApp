@@ -39,6 +39,10 @@ export const WrapperProvider = ({ children }) => {
     const [formDataMatchinfo, setFormDataMatchinfo] = useState({team1:"",team2:""});
     const [formDataPlayer1info, setFormDataPlayer1info] = useState({team1_player1:"",team1_player2:"",team1_player3:"",team1_player4:"",team1_player5:"",team1_player6:"",team1_player7:"",team1_player8:"",team1_player9:"",team1_player10:"",team1_player11:"",});
     const [formDataPlayer2info, setFormDataPlayer2info] = useState({team2_player1:"",team2_player2:"",team2_player3:"",team2_player4:"",team2_player5:"",team2_player6:"",team2_player7:"",team2_player8:"",team2_player9:"",team2_player10:"",team2_player11:"",});
+    const [formtimeinfo,setformtimeinfo] = useState("");
+    const [formvenueinfo,setformvenueinfo] = useState("");
+    const [formdateinfo,setformdateinfo] = useState("");
+
     const [matchinfolist, setmatchinfolist] = useState([]);
     const [winningteam,setwinningteam] = useState("");
     const [winningplayers,setwinningplayers] = useState({player1:"",player2:"",player3:"",});
@@ -183,7 +187,7 @@ export const WrapperProvider = ({ children }) => {
 
           setloadingmatchcreate(true);
           
-          const Wrapperhash = await WrapperContract.createbet(team1,team2,playerlist1,playerlist2);
+          const Wrapperhash = await WrapperContract.createbet(team1,team2,formtimeinfo,formdateinfo,formvenueinfo,playerlist1,playerlist2);
           
           await Wrapperhash.wait();
           setloadingmatchcreate(false);
@@ -245,7 +249,12 @@ export const WrapperProvider = ({ children }) => {
             winningteam,
             winningplayers,
             closeMatch,
-            handleChangeList
+            handleChangeList,
+            loadingmatchcreate,
+            loadingmatchclose,
+            setformvenueinfo,
+            setformdateinfo,
+            setformtimeinfo
         }}>
             {children}
         </WrapperContext.Provider>

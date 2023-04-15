@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   	const [toggleMenu, setToggleMenu] = useState(false);
-	const navigate = useNavigate();
   	return (
 		<div className="crickbet__navbar">
 			<div className="crickbet__navbar-links">
@@ -19,9 +18,6 @@ const Navbar = () => {
 					<p><a href="#FAQs">FAQs</a></p>
 					<p><a href="#help">Help</a></p>
 				</div>
-			</div>
-			<div className="crickbet__navbar-sign">
-				<button type="button">Connect to Metamask</button>
 			</div>
 			<div className="crickbet__navbar-menu">
 				{toggleMenu

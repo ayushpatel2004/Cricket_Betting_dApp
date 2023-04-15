@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import './player.css'
 import { WrapperContext } from '../context/wrappercontext';
+import Loader from '../components/Loader';
 
 const PlayerCard=(props) => {
     const navigate = useNavigate();
-    // console.log(props);
     const {setselectedplayer} = useContext(WrapperContext);
     const onsubmit = (e,player) => {
         setselectedplayer(player);
@@ -21,17 +21,19 @@ const PlayerCard=(props) => {
 
 const Player = () => {
 
-    const {playerlist1,playerlist2,selectedmatchdetails} = useContext(WrapperContext);
+    const {playerlist1,playerlist2,selectedmatchdetails,loadingplayerdisplay} = useContext(WrapperContext);
   return (
-    <>
+    <div>{
+        loadingplayerdisplay?<Loader/>:
+        <div>
     <div className="playerbet gradient__text">PLAYER BET</div>
     <div className='bet'>
     <div className='list'>
     <h1 className="gradient__text">{selectedmatchdetails.team1}</h1>
     <div className='box'>
          {playerlist1.map((player)=>{
-            return <PlayerCard playername={player}/>
-         })}
+             return <PlayerCard playername={player}/>
+            })}
     </div>
     </div>
     <div className='vs'>V/S</div>
@@ -40,11 +42,13 @@ const Player = () => {
     <div className='box'>
         {playerlist2.map((player)=>{
             return <PlayerCard playername={player}/>
-         })}
+        })}
     </div>
     </div>
     </div>
-    </>
+        </div>
+}
+    </div>
   )
 }
 
