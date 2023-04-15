@@ -26,8 +26,8 @@ return (
         <p>Date: {date}</p>
         <p>Time: {time}</p>
         <div class="bet-toggle">
-            <button onClick={onsubmitmatch} id="player-bet" class="active">Player Bet</button>
-            <button onClick={onsubmitplayer} id="team-bet" class="active">Team Bet</button>
+            <button onClick={onsubmitplayer} id="player-bet" class="active">Player Bet</button>
+            <button onClick={onsubmitmatch} id="team-bet" class="active">Team Bet</button>
         </div>
     </div>
 );
