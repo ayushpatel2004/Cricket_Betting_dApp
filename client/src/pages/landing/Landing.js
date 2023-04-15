@@ -1,10 +1,10 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import logo from '../assets/logo.svg';
-import LOGO1 from '../assets/LOGO1.svg'
+import logo from '../../assets/LOGO2.svg';
+import LOGO1 from '../../assets/LOGO1.svg'
 import './landing.css';
 import { useNavigate } from "react-router-dom";
-import { WrapperContext } from '../context/wrappercontext';
+import { WrapperContext } from '../../context/wrappercontext';
 
 const Landing = () => {
   	const [toggleMenu, setToggleMenu] = useState(false);
@@ -18,7 +18,7 @@ const Landing = () => {
         navigate('home');
     }
   	return (
-        <div>
+        <>
             <div className="crickbet__navbar">
                 <div className="crickbet__navbar-links">
                     <div className="crickbet__navbar-links_logo">
@@ -62,7 +62,7 @@ const Landing = () => {
                     <img src={LOGO1} />
                 </div>
             </div>
-        </div>
+        </>
   	);
 };
 

@@ -1,6 +1,6 @@
 // import { Button, Card, CardActions, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
-import './myCard2.css';
+import './pastMatch.css';
 
 const MyCard2=({team1,team2,venue,time,date,refundamount})=>{
 

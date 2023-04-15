@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { WrapperContext } from "../context/wrappercontext";
-import './myCard.css';
+import { WrapperContext } from "../../context/wrappercontext";
+import './currentMatch.css';
 
 const Mycard=({team1,team2,venue,time,date,contract})=>{
 

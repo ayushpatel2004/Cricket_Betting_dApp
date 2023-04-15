@@ -1,13 +1,11 @@
 import React from 'react';
-import Home from './pages/home';
+import Home from './pages/home/home';
 import { Routes, Route } from "react-router-dom";
-import Landing from './pages/Landing';
-import Player from './pages/player';
-import Team from './pages/team';
+import Landing from './pages/landing/Landing';
+import Player from './pages/player/player';
+import Team from './pages/team/team';
 import AmountMatch from './pages/amount_team';
 import AmountPlayer from './pages/amount_player';
-
-
 import './App.css';
 
 const App = () => (

@@ -1,20 +1,18 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./home.css";
-import Mycard from "../components/Mycard";
-import { WrapperContext } from "../context/wrappercontext";
-import MyCard2 from "../components/MyCard2";
-import {Navbar} from "../containers/"
-import Loader from "../components/Loader";
-// import {match_list} from "../containers";
-
+import CurrentMatch from "../../components/currentMatch/currentMatch";
+import { WrapperContext } from "../../context/wrappercontext";
+import PastMatch from "../../components/pastMatch/pastMatch";
+import { Navbar } from "../../containers"
+import Loader from "../../components/Loader";
 
 const Home = () =>{
     const {matchinfolist,completedmatchlist,loadingactivematch,loadingcompletedmatch}=useContext(WrapperContext);
     return(
-        <div className="gradient__bg ">
+        <div className="gradient__bg">
             <Navbar/>
             <div>
-            <h1 className="gradient__text new_text center_align gradient__text">
+            <h1 className="center_align">
                 ACTIVE MATCHES
             </h1>
             </div>
@@ -23,12 +21,12 @@ const Home = () =>{
             {
                 matchinfolist.map((match,i)=>{
                     console.log(match);
-                    return <Mycard key={i}{...match}/>
+                    return <CurrentMatch key={i}{...match}/>
                 })
             }
             </div>
             }
-            <h1 className="gradient__text new_text center_align">
+            <h1 className="center_align">
                 COMPLETED MATCHES
             </h1>
             { loadingcompletedmatch?<Loader/>:
@@ -36,7 +34,7 @@ const Home = () =>{
             {
                 completedmatchlist.map((match,i)=>{
                     console.log(match);
-                    return <MyCard2 key={i}{...match}/>
+                    return <PastMatch key={i}{...match}/>
                 })
             }
             </div>

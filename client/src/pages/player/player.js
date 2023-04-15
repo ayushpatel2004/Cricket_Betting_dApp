@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import './player.css'
-import { WrapperContext } from '../context/wrappercontext';
-import Loader from '../components/Loader';
+import { WrapperContext } from '../../context/wrappercontext';
+import Loader from '../../components/Loader';
 
 const PlayerCard=(props) => {
     const navigate = useNavigate();

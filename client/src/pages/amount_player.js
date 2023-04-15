@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
-// import React, { useContext } from 'react'
 import { WrapperContext } from '../context/wrappercontext'
 import Loader from '../components/Loader';
 
@@ -20,7 +19,6 @@ const Amount_Player = () => {
   }
   const onsubmit=(e)=>{
     e.preventDefault();
-    // console.log(e.target.value);
     setbetvalue(e.target.value);
   }
   return (

@@ -2,7 +2,7 @@ import React,{ useContext } from 'react'
 import './team.css'
 import { useNavigate } from "react-router-dom";
 // import React, { useContext } from 'react'
-import { WrapperContext } from '../context/wrappercontext'
+import { WrapperContext } from '../../context/wrappercontext'
 
 export default function TeamBet() {
 const navigate = useNavigate();

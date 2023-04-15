@@ -1,0 +1,125 @@
+  .center_align {
+    text-align: center;
+    margin-top: 1.2rem;
+  }
+
+  .color_text{
+    color: white;
+    text-align: center;
+    padding-top: 7%;
+    padding-bottom: 4%;
+  }
+  
+  .match_button{ 
+      display:block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      text-align: left;
+      width: 60%;
+      align-content: baseline;
+      margin: 1%;
+      font-style: normal;
+      font-size: medium;
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  }
+
+  .match_button:hover {
+    background-color: blueviolet;
+  }
+
+  .match_list_allignment{
+    align-items: center;
+    display: list-item;
+  }
+
+  .dropdown {
+    margin-left: 3%;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    width: max-content;
+    float: right;
+
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .only_button_pos {
+    text-decoration: none;
+  }
+
+
+.placement_of_match_details_1{
+  display: inline-block;
+  margin-right: 5%;
+}
+
+.placement_of_match_details_2{
+  display: inline-block;
+  margin-left: 2%;
+  margin-right: 5%;
+  font-size: larger;
+  font-weight: bold;
+  font-style: oblique;
+}
+
+.placement_of_match_details_3{
+  display: inline-block;
+  margin-left: 2%;
+  margin-right: 5%
+}
+.vertical_rule{
+  height: 60px;
+  display: inline-block;
+  position:absolute;
+  border-left: 1px solid white;
+  
+}
+
+.new_text{
+    color:white;
+    font-family: var(--font-family);
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.bet_type_list{
+  display: inline-block;
+  margin-right: 0%;
+  
+}
+       
+.btn-grad-small {
+  background-image: linear-gradient(to right, #4b6cb7 0%, #182848  51%, #4b6cb7  100%);
+  margin: 10px;
+  margin-top: 0%;
+  padding: 5px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  border-radius: 3px;
+  display: inline-block;
+  height: 5%;
+  width: 40%;
+}
+
+.btn-grad-small:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.match-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

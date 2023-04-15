@@ -1,6 +1,7 @@
 .match-card {
-    background-color: #3366ff;
-    /* background-color: linear-gradient(to bottom, #ffcc99 0%, #ff99cc 100%); */
+    background: #c0392b;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8e44ad, #97483f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8e44ad, #b65247);
     color: #FFFFFF;
     border-radius: 10px;
     padding: 20px;
@@ -29,8 +30,6 @@
     margin-bottom: 20px;
     position: absolute;
     bottom: 0px;
-    right: 0px;
-    left: 0px;
   }
   
   .bet-toggle button {
@@ -45,15 +44,19 @@
   }
   
   .bet-toggle button.active {
-    background-color: #f0ad4e;
+    background-color: #fff;
     color: #333;
   }
   
-  #winning-amount {
+  #player-bet {
     margin-right: 10px;
   }
   
-  #winning-amount:hover{
-    background-color: #333;
+  #team-bet {
+    margin-left: 10px;
+  }
+  
+  #player-bet:hover, #team-bet:hover{
+    background-color: #000;
     color: #fff;
   }
