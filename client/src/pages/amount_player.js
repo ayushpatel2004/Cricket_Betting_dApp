@@ -29,16 +29,18 @@ const Amount_Player = (props) => {
       <div className='popup'>
         <form className = "btn-grad">
           <div>
-            <button onClick={()=> props.setTrigger(false)}>Close</button>
+            <button onClick={()=> props.setTrigger(false)} className='cross-button'></button>
           </div>
           <div>
             <h1 className='general_statement'>
-               You are betting on : {selectedplayer}
+               You are betting on : <br/>{selectedplayer}
                 </h1>
             </div>
             <label>
+              <div className='form_field_text'>
                 Enter Bet Amount: 
-                <input required type="numeric" name="amount" onChange={onsubmit}/>
+                </div><br/>
+                <input required type="numeric" name="amount" onChange={onsubmit} placeholder='Enter Amount' className='form_field_properties'/>
             </label>
             <br></br>
             <input type="submit" value="Place Bet" onClick={placebetplayer}/>

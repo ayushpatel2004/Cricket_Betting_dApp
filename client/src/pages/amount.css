@@ -57,7 +57,7 @@ form {
 
            
   .btn-grad {
-    background-image: linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%);
+    background-image: linear-gradient(to right, #742e82 0%, #9733EE  51%, #DA22FF  100%);
     text-align: center;
     /* text-transform: uppercase; */
     transition: 0.5s;
@@ -81,14 +81,66 @@ form {
     user-select: none;
   }
   
-  .popup{
+  .popup {
     position: fixed;
-    top:0;
-    left:0;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
     width: auto;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
   }
+  
+  
+  .cross-button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 63px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 40%;
+    background-color: transparent;
+    border-color: transparent;
+    padding-right: 0;
+  }
+  
+  .cross-button::before,
+  .cross-button::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .cross-button::before {
+    transform: rotate(45deg);
+  }
+  
+  .cross-button::after {
+    transform: rotate(-45deg);
+  }
+  
+.form_field_text{
+  font-weight: bolder;
+  font-size: 22px;
+  margin-bottom: 0%;
+  font-family: var(--font-family);
+  
+}
+
+.form_field_properties{
+  height: 30px;
+  width: 200px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 20px;
+  padding: 10%;
+  font-size: 18px;
+}
