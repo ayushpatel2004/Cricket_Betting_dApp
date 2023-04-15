@@ -88,6 +88,9 @@ export const WrapperProvider = ({ children }) => {
             list.push({
               team1: element.team1,
               team2: element.team2,
+              venue: element.venue,
+              time: element.time,
+              date: element.date,
               contract: livematchescontracts[index]
             });
           }

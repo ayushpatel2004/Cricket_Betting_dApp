@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import logo from '../../assets/logo.svg';
 import './navbar.css';
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +9,6 @@ const Navbar = () => {
 		<div className="crickbet__navbar">
 			<div className="crickbet__navbar-links">
 				<div className="crickbet__navbar-links_logo">
-					<img src={logo} />
 				</div>
 				<div className="crickbet__navbar-links_container">
 					<p><a href="#home">Home</a></p>

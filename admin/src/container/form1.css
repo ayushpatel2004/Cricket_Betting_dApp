@@ -1,0 +1,83 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+.form1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.match_details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+    font-size:32px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  input{
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 50px;
+    background-color: white;
+    text-align: center;
+  }
+  input:hover{
+    background-color: #6c757d;
+  }
+  .team{
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    /* box-shadow: 5px 5px 5px 5px rgb(13, 74, 95,0.5); */
+  }
+  h1{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    color: white;
+  }
+  .submit{
+    width: 80px;
+    background-color: azure;
+  }
+  .match-card1{
+    background-image: #c0392b;  /* fallback for old browsers */
+    background-image: -webkit-linear-gradient(to right, #8e44ad, #97483f);  /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(to right, #8e44ad, #b65247);
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    flex-direction: column;
+    position: relative;
+    transition: 0.5s;
+    background-size: 200% auto;
+}
+
+.match-card1:hover {
+background-position: right center;
+color: white;
+text-decoration: none;
+}
+  .match-card1 h2 {
+    font-size: 24px;
+    height: 70px;
+  }
+  
+  .match-card1 p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }

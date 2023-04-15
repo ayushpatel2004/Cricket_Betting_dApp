@@ -5,7 +5,7 @@ import { WrapperContext } from "../context/wrappercontext";
 import './mycard.css'
 // import {Navbar} from "./container"
 
-const Mycard=({team1,team2,contract})=>{
+const Mycard=({team1,team2,contract,venue,date,time})=>{
 const navigate = useNavigate();
 const {onselectmatch} = useContext(WrapperContext);
 const onsubmit = (e) => {
@@ -15,9 +15,9 @@ const onsubmit = (e) => {
 return (
     <div class="match-card">
         <h2>{team1} vs {team2}</h2>
-        {/* <p>Venue: {venue}</p>
+        <p>Venue: {venue}</p>
         <p>Date: {date}</p>
-        <p>Time: {time}</p> */}
+        <p>Time: {time}</p>
         <div class="bet-toggle">
             <button onClick={onsubmit} id="winning-amount" class="active">Close Match</button>
         </div>

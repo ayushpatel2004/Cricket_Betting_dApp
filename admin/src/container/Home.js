@@ -24,7 +24,7 @@ const Home=()=>{
                     }
                 </div>
             </div>
-            <div className="createMatch"><Button  onClick={() => navigate('matchinput')} variant="contained">Create Match</Button></div>
+            <div className="createMatch"><button className="create-match"  onClick={() => navigate('matchinput')} variant="contained">Create Match</button></div>
 
         </div>
     )

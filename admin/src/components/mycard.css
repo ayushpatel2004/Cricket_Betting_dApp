@@ -1,4 +1,4 @@
-.transparent__bg{
+/* .transparent__bg{
     background-color: transparent !important;
 }
 .type{
@@ -63,4 +63,62 @@
     color: #fff;
   }
 
+   */
+   .match-card {
+    background-image: #c0392b;  /* fallback for old browsers */
+    background-image: -webkit-linear-gradient(to right, #8e44ad, #97483f);  /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(to right, #8e44ad, #b65247);
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: 0.5s;
+    background-size: 200% auto;
+}
+
+  .match-card h2 {
+    font-size: 24px;
+    height: 70px;
+  }
   
+  .match-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .bet-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    bottom: 0px;
+  }
+  
+  .bet-toggle button {
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 63px;
+  }
+  
+  .bet-toggle button.active {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  
+  #winning-amount :hover{
+    background-color: #000;
+    color: #fff;
+  }

@@ -2,8 +2,8 @@ import { Button } from "@mui/material";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { WrapperContext } from "../context/wrappercontext";
-import Loader from "../components/Loader";
-
+import './form1.css';
+import Navbar from "./navbar/Navbar";
 
 const Form1=()=>{
     const navigate = useNavigate();
@@ -22,6 +22,13 @@ const Form1=()=>{
         e.preventDefault();
 
         console.log(formDataMatchinfo);
+        // const playername1 = formDataPlayer1info.map((player)=>c);
+        // console.log(formDataPlayer2info);
+        
+
+        // console.log(playerlist1);
+
+        // const playerlist1=[];
 
         const {team1_player1,team1_player2,team1_player3,team1_player4,team1_player5,team1_player6,team1_player7,team1_player8,team1_player9,team1_player10,team1_player11} = formDataPlayer1info;
 
@@ -38,147 +45,132 @@ const Form1=()=>{
         navigate(-1);
     }
     return (
-        <div>
-        {loadingmatchcreate?<Loader/>:
-        <form>
+        <div className="gradient__bg match_details " >
+            <h1 className="">Enter Match Details</h1>
+        <form className="form match-card1 ">
+        <div className="form1">
+            <div className="team1 team">
             <label>
-                Team1:
-                <input required type="text" name="team1"  onChange={(e) => handleChange(e, "team1")}/>
+                
+                <input required type="text" name="team1" placeholder="Enter TEAM 1" onChange={(e) => handleChange(e, "team1")}/>
             </label>
             <br></br>
             <label>
-                Team2:
-                <input required type="text" name="team2" onChange={(e) => handleChange(e, "team2")}/>
+                <input required type="text" name="team1_player1" placeholder="Enter Player 1" onChange={(e) => handleChangePlayer1(e, "team1_player1")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player1:
-                <input required type="text" name="team1_player1" onChange={(e) => handleChangePlayer1(e, "team1_player1")}/>
+                <input required type="text" name="team1_player2"  placeholder="Enter Player 2" onChange={(e) => handleChangePlayer1(e, "team1_player2")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player2:
-                <input required type="text" name="team1_player2" onChange={(e) => handleChangePlayer1(e, "team1_player2")}/>
+                <input required type="text" name="team1_player3" placeholder="Enter Player 3" onChange={(e) => handleChangePlayer1(e, "team1_player3")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player3:
-                <input required type="text" name="team1_player3" onChange={(e) => handleChangePlayer1(e, "team1_player3")}/>
+                <input required type="text" name="team1_player4" placeholder="Enter Player 4" onChange={(e) => handleChangePlayer1(e, "team1_player4")} />
             </label>
             <br></br>
             <label>
-                Team1 Player4:
-                <input required type="text" name="team1_player4"onChange={(e) => handleChangePlayer1(e, "team1_player4")} />
+                <input required type="text" name="team1_player5" placeholder="Enter Player 5" onChange={(e) => handleChangePlayer1(e, "team1_player5")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player5:
-                <input required type="text" name="team1_player5" onChange={(e) => handleChangePlayer1(e, "team1_player5")}/>
+                <input required type="text" name="team1_player6" placeholder="Enter Player 6" onChange={(e) => handleChangePlayer1(e, "team1_player6")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player6:
-                <input required type="text" name="team1_player6" onChange={(e) => handleChangePlayer1(e, "team1_player6")}/>
+                <input required type="text" name="team1_player7" placeholder="Enter Player 7" onChange={(e) => handleChangePlayer1(e, "team1_player7")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player7:
-                <input required type="text" name="team1_player7" onChange={(e) => handleChangePlayer1(e, "team1_player7")}/>
+                <input required type="text" name="team1_player8" placeholder="Enter Player 8" onChange={(e) => handleChangePlayer1(e, "team1_player8")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player8:
-                <input required type="text" name="team1_player8" onChange={(e) => handleChangePlayer1(e, "team1_player8")}/>
+                <input required type="text" name="team1_player9" placeholder="Enter Player 9" onChange={(e) => handleChangePlayer1(e, "team1_player9")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player9:
-                <input required type="text" name="team1_player9" onChange={(e) => handleChangePlayer1(e, "team1_player9")}/>
+                <input required type="text" name="team1_player10" placeholder="Enter Player 10" onChange={(e) => handleChangePlayer1(e, "team1_player10")}/>
             </label>
             <br></br>
             <label>
-                Team1 Player10:
-                <input required type="text" name="team1_player10" onChange={(e) => handleChangePlayer1(e, "team1_player10")}/>
+                <input required type="text" name="team1_player11" placeholder="Enter Player 11" onChange={(e) => handleChangePlayer1(e, "team1_player11")}/>
             </label>
             <br></br>
-            <label>
-                Team1 Player11:
-                <input required type="text" name="team1_player11" onChange={(e) => handleChangePlayer1(e, "team1_player11")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player1:
-                <input required type="text" name="team2_player1" onChange={(e) => handleChangePlayer2(e, "team2_player1")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player2:
-                <input required type="text" name="team2_player2" onChange={(e) => handleChangePlayer2(e, "team2_player2")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player3:
-                <input required type="text" name="team2_player3" onChange={(e) => handleChangePlayer2(e, "team2_player3")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player4:
-                <input required type="text" name="team2_player4" onChange={(e) => handleChangePlayer2(e, "team2_player4")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player5:
-                <input required type="text" name="team2_player5" onChange={(e) => handleChangePlayer2(e, "team2_player5")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player6:
-                <input required type="text" name="team2_player6" onChange={(e) => handleChangePlayer2(e, "team2_player6")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player7:
-                <input required type="text" name="team2_player7" onChange={(e) => handleChangePlayer2(e, "team2_player7")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player8:
-                <input required type="text" name="team2_player8" onChange={(e) => handleChangePlayer2(e, "team2_player8")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player9:
-                <input required type="text" name="team2_player9" onChange={(e) => handleChangePlayer2(e, "team2_player9")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player10:
-                <input required type="text" name="team2_player10" onChange={(e) => handleChangePlayer2(e, "team2_player10")}/>
-            </label>
-            <br></br>
-            <label>
-                Team2 Player11:
-                <input required type="text" name="team2_player11" onChange={(e) => handleChangePlayer2(e, "team2_player11")}/>
-            </label>
-            <br></br>
-            <label>
-                Venue:
-                <input required type="text" name="venue" onChange={(e)=>setformvenueinfo(e.target.value)}/>
-            </label>
-            <br></br>
-            <label>
-                Date:
-                <input required type="text" name="date" onChange={(e)=>setformdateinfo(e.target.value)}/>
-            </label>
-            <br></br>
-            <label>
-                Time:
-                <input required type="text" name="time" onChange={(e)=>setformtimeinfo(e.target.value)}/>
-            </label>
-            <br></br>
-            <input onClick={handlesubmit} type="submit" value="Submit" />
-        </form>}
             </div>
+            <div className="team2 team">
+            <label >          
+                <input required type="text" name="team2" placeholder="Enter TEAM 2" onChange={(e) => handleChange(e, "team2")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player1" placeholder="Enter Player 1" onChange={(e) => handleChangePlayer2(e, "team2_player1")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player2" placeholder="Enter Player 2" onChange={(e) => handleChangePlayer2(e, "team2_player2")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player3" placeholder="Enter Player 3" onChange={(e) => handleChangePlayer2(e, "team2_player3")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player4" placeholder="Enter Player 4" onChange={(e) => handleChangePlayer2(e, "team2_player4")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player5" placeholder="Enter Player 5" onChange={(e) => handleChangePlayer2(e, "team2_player5")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player6" placeholder="Enter Player 6" onChange={(e) => handleChangePlayer2(e, "team2_player6")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player7" placeholder="Enter Player 7" onChange={(e) => handleChangePlayer2(e, "team2_player7")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player8" placeholder="Enter Player 8" onChange={(e) => handleChangePlayer2(e, "team2_player8")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player9" placeholder="Enter Player 9" onChange={(e) => handleChangePlayer2(e, "team2_player9")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player10" placeholder="Enter Player 10" onChange={(e) => handleChangePlayer2(e, "team2_player10")}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="team2_player11" placeholder="Enter Player 11" onChange={(e) => handleChangePlayer2(e, "team2_player11")}/>
+            </label>
+            <br></br>
+            
+            </div>
+            
+            </div>
+            <div>
+            <label>
+                <input required type="text" name="venue" placeholder="Enter Venue" onChange={(e)=>setformvenueinfo(e.target.value)}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="date" placeholder="Enter Date" onChange={(e)=>setformdateinfo(e.target.value)}/>
+            </label>
+            <br></br>
+            <label>
+                <input required type="text" name="time" placeholder="Enter Time" onChange={(e)=>setformtimeinfo(e.target.value)}/>
+            </label>
+            <br></br>
+            </div>
+            <input onClick={handlesubmit} type="submit" className="submit" value="Submit" />
+            
+        </form>
+        </div>
     )
 }
 
