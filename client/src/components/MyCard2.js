@@ -5,7 +5,7 @@ const MyCard2=({team1,team2,refundamount})=>{
 
 return (
     <div className="only_button_pos">
-        <div className="btn-grad" >
+        <div className="btn-grad match-card" >
             <div className="placement_of_match_details_2">
                 {team1} vs {team2}
             </div>

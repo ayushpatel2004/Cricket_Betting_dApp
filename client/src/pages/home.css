@@ -73,7 +73,7 @@
     /* display: inline-block; */
     /* padding-top: 2%; */
     /* padding-left: 10%; */
-    margin-left: 10%;
+    /* margin-left: 10%; */
     align-items: center;
     display: list-item;
     /* overflow-y: scroll; */
@@ -97,7 +97,8 @@
   }
 
   .only_button_pos {
-    padding-left: 5%;
+    /* padding-left: 5%; */
+    text-decoration: none;
   }
 
 
@@ -166,8 +167,8 @@
 }
 
 
-         
-/* .btn-grad {
+/*          
+.btn-grad {
   background-image: linear-gradient(to right, #000000 0%, #53346D  51%, #000000  100%);
   margin: 10px;
   padding: 15px 45px;
@@ -180,8 +181,8 @@
   display: block;
   padding: 10px 20px;
       border-radius: 10px;
-      /* background-image: radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% ); */
-      /* font-size: 16px;
+      background-image: radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% );
+       font-size: 16px;
       text-align: left;
       width: 80%;
       align-content: baseline;
@@ -191,17 +192,21 @@
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 18px;
-  } */
+  }
 
-/* .btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
-  /* color: #fff;
-  text-decoration: none; */
-/* }  */
+.btn-grad:hover {
+  background-position: right center; 
+  color: #fff;
+  text-decoration: none;
+}  */
 
          
+         
+         
+         
+         
 .btn-grad {
-  background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+  background-image: linear-gradient(to right, #42275a 0%, #734b6d  51%, #42275a  100%);
   margin: 10px;
   padding: 15px 45px;
   text-align: center;
@@ -212,18 +217,18 @@
   /* box-shadow: 0 0 20px #eee; */
   border-radius: 10px;
   display: block;
+
   border-radius: 10px;
-      /* background-image: radial-gradient( circle 325px at 19.2% 64.8%,  rgba(254,62,101,1) 9.7%, rgba(166,24,146,1) 91.3% ); */
-      font-size: 16px;
-      text-align: left;
-      width: 80%;
-      align-content: baseline;
-      margin: 3%;
-      color: #fff;
-      height: max-content;
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 18px;
+  font-size: 16px;
+ text-align: left;
+ /* width: 80%; */
+ align-content: baseline;
+ /* margin: 3%; */
+ color: #fff;
+ height: max-content;
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 18px;
 }
 
 .btn-grad:hover {
@@ -231,6 +236,41 @@
   color: #fff;
   text-decoration: none;
 }
+
+
+.match-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.match-card {
+  background-color: #333333;
+  color: #FFFFFF;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.match-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.match-card p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+
+         
+
 
 
 

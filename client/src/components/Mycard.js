@@ -21,13 +21,13 @@ const onsubmitmatch = async (e) => {
 }
 return (
     <div className="only_button_pos">
-        <div className="btn-grad" >
+        <div className="btn-grad match-card" >
             <div className="placement_of_match_details_2">
                 {team1} vs {team2}
             </div>
             <div className="dropdown">
                 <ul>
-                    <button onClick={onsubmitmatch} className="bet_type_list btn-grad-small">Team Bet</button>
+                    <button onClick={onsubmitmatch} className="bet_type_list btn-grad-small ">Team Bet</button>
                     <button onClick={onsubmitplayer} className="bet_type_list btn-grad-small">Player Bet</button>
                 </ul>
             </div>
