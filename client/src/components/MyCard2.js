@@ -1,30 +1,17 @@
 // import { Button, Card, CardActions, CardContent, Grid, Typography } from "@mui/material";
 import React from "react";
+import './myCard2.css';
 
 const MyCard2=({team1,team2,venue,time,date,refundamount})=>{
 
 return (
-    <div className="only_button_pos">
-        <div className="btn-grad match-card" >
-            <div className="placement_of_match_details_2">
-                {team1} vs {team2}
-            </div>
-            <div>
-                <ul>
-                    Venue: {venue}
-                </ul>
-                <ul>
-                    Time: {time}
-                </ul>
-                <ul>
-                    Date: {date}
-                </ul>
-            </div>
-            <div className="dropdown">
-                <ul>
-                    <button className="bet_type_list btn-grad-small">{refundamount}</button>
-                </ul>
-            </div>
+    <div class="match-card">
+        <h2>{team1} vs {team2}</h2>
+        <p>Venue: {venue}</p>
+        <p>Date: {date}</p>
+        <p>Time: {time}</p>
+        <div class="bet-toggle">
+            <button id="winning-amount" class="active">Winning amount: {refundamount}</button>
         </div>
     </div>
 );

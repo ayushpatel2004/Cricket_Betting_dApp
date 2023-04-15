@@ -23,16 +23,12 @@
   .gradient__bg {
     background:-moz-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
   
-    /* safari 5.1+,chrome 10+ */
     background:-webkit-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
   
-    /* opera 11.10+ */
     background:-o-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
   
-    /* ie 10+ */
     background:-ms-radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
   
-    /* global 92%+ browsers support */
     background:radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
 
     overflow-y: scroll;
@@ -41,10 +37,8 @@
   .color_text{
     color: white;
     text-align: center;
-    /* padding-left: 3.6%; */
     padding-top: 7%;
     padding-bottom: 4%;
-    /* display: inline-block; */
   }
   
   .match_button{ 
@@ -205,7 +199,7 @@
          
          
          
-.btn-grad {
+/* .btn-grad {
   background-image: linear-gradient(to right, #42275a 0%, #734b6d  51%, #42275a  100%);
   margin: 10px;
   padding: 15px 45px;
@@ -214,16 +208,13 @@
   transition: 0.5s;
   background-size: 200% auto;
   color: white;            
-  /* box-shadow: 0 0 20px #eee; */
   border-radius: 10px;
   display: block;
 
   border-radius: 10px;
   font-size: 16px;
  text-align: left;
- /* width: 80%; */
  align-content: baseline;
- /* margin: 3%; */
  color: #fff;
  height: max-content;
 font-family: var(--font-family);
@@ -232,7 +223,7 @@ font-size: 18px;
 }
 
 .btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
+  background-position: right center;
   color: #fff;
   text-decoration: none;
 }
@@ -266,6 +257,13 @@ font-size: 18px;
 .match-card p {
   font-size: 16px;
   margin-bottom: 20px;
+} */
+
+.match-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 

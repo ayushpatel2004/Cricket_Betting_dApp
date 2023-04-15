@@ -18,7 +18,7 @@ const Landing = () => {
         navigate('home');
     }
   	return (
-        <>
+        <div>
             <div className="crickbet__navbar">
                 <div className="crickbet__navbar-links">
                     <div className="crickbet__navbar-links_logo">
@@ -62,7 +62,7 @@ const Landing = () => {
                     <img src={LOGO1} />
                 </div>
             </div>
-        </>
+        </div>
   	);
 };
 

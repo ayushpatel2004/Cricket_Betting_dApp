@@ -1,0 +1,59 @@
+.match-card {
+    background-color: #3366ff;
+    /* background-color: linear-gradient(to bottom, #ffcc99 0%, #ff99cc 100%); */
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .match-card h2 {
+    font-size: 24px;
+    height: 70px;
+  }
+  
+  .match-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .bet-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+  }
+  
+  .bet-toggle button {
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .bet-toggle button.active {
+    background-color: #f0ad4e;
+    color: #333;
+  }
+  
+  #winning-amount {
+    margin-right: 10px;
+  }
+  
+  #winning-amount:hover{
+    background-color: #333;
+    color: #fff;
+  }

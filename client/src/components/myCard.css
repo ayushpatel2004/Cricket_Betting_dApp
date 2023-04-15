@@ -1,0 +1,60 @@
+.match-card {
+    background-color: #C7E8F3;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .match-card h2 {
+    font-size: 24px;
+    height: 70px;
+  }
+  
+  .match-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .bet-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    bottom: 0px;
+  }
+  
+  .bet-toggle button {
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .bet-toggle button.active {
+    background-color: #f0ad4e;
+    color: #333;
+  }
+  
+  #player-bet {
+    margin-right: 10px;
+  }
+  
+  #team-bet {
+    margin-left: 10px;
+  }
+  
+  #player-bet:hover, #team-bet:hover{
+    background-color: #333;
+    color: #fff;
+  }

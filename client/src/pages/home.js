@@ -11,10 +11,10 @@ import Loader from "../components/Loader";
 const Home = () =>{
     const {matchinfolist,completedmatchlist,loadingactivematch,loadingcompletedmatch}=useContext(WrapperContext);
     return(
-        <div className="gradient__bg custom_background">
+        <div className="gradient__bg ">
             <Navbar/>
             <div>
-            <h1 className="gradient__text new_text center_align">
+            <h1 className="gradient__text new_text center_align gradient__text">
                 ACTIVE MATCHES
             </h1>
             </div>

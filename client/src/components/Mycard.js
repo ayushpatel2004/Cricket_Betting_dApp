@@ -1,7 +1,7 @@
-// import { Button, Card, CardActions, CardContent, Grid, Typography } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { WrapperContext } from "../context/wrappercontext";
+import './myCard.css';
 
 const Mycard=({team1,team2,venue,time,date,contract})=>{
 
@@ -15,34 +15,19 @@ const onsubmitplayer = async (e) => {
     navigate('playerbet');
 }
 const onsubmitmatch = async (e) => {
-    // console.log(contract);
     setselectedmatch(contract);
     setselectedmatchdetails({team1:team1,team2:team2});
     navigate('teambet');
 }
 return (
-    <div className="only_button_pos">
-        <div className="btn-grad match-card" >
-            <div className="placement_of_match_details_2">
-                {team1} vs {team2}
-            </div>
-            <div>
-                <ul>
-                    Venue: {venue}
-                </ul>
-                <ul>
-                    Time: {time}
-                </ul>
-                <ul>
-                    Date: {date}
-                </ul>
-            </div>
-            <div className="dropdown">
-                <ul>
-                    <button onClick={onsubmitmatch} className="bet_type_list btn-grad-small ">Team Bet</button>
-                    <button onClick={onsubmitplayer} className="bet_type_list btn-grad-small">Player Bet</button>
-                </ul>
-            </div>
+    <div class="match-card">
+        <h2>{team1} vs {team2}</h2>
+        <p>Venue: {venue}</p>
+        <p>Date: {date}</p>
+        <p>Time: {time}</p>
+        <div class="bet-toggle">
+            <button onClick={onsubmitmatch} id="player-bet" class="active">Player Bet</button>
+            <button onClick={onsubmitplayer} id="team-bet" class="active">Team Bet</button>
         </div>
     </div>
 );
