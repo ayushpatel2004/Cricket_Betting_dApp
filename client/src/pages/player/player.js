@@ -3,28 +3,36 @@ import { useNavigate } from "react-router-dom";
 import './player.css'
 import { WrapperContext } from '../../context/wrappercontext';
 import Loader from '../../components/Loader';
+import { useState } from 'react';
+import Amount_Player from '../amount_player';
 
 const PlayerCard=(props) => {
     const navigate = useNavigate();
     const {setselectedplayer} = useContext(WrapperContext);
-    const onsubmit = (e,player) => {
+    const [ButtonState, setButtonState] = useState(false);
+    
+     onsubmit = (e,player) => {
+        setButtonState(true);
         setselectedplayer(player);
-        navigate('transactionplayer');
+        // setButtonState(true);
+        // navigate('transactionplayer');
     }
     return(<>
         <button onClick={(e)=>onsubmit(e,props.playername)} type="button" class="btn btn-outline-secondary">
             <img src="https://w7.pngwing.com/pngs/981/645/png-transparent-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette-symbol.png" alt="" />
             {props.playername}
             </button>
+
+            <Amount_Player trigger = {ButtonState} setTrigger = {setButtonState}></Amount_Player>
         </>);
 }
 
 const Player = () => {
 
-    const {playerlist1,playerlist2,selectedmatchdetails,loadingplayerdisplay} = useContext(WrapperContext);
+    const {playerlist1,playerlist2,selectedmatchdetails,loadingplayerdisplay,loadingplayerbet} = useContext(WrapperContext);
   return (
     <div>{
-        loadingplayerdisplay?<Loader/>:
+        loadingplayerdisplay||loadingplayerbet?<Loader/>:
         <div>
     <div className="playerbet gradient__text">PLAYER BET</div>
     <div className='bet'>

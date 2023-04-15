@@ -1,25 +1,25 @@
 .match-card {
-    background: #c0392b;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8e44ad, #97483f);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #8e44ad, #b65247);
-    color: #FFFFFF;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    width: 300px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    transition: 1s;
-  }
+  background-image: #c0392b;  /* fallback for old browsers */
+  background-image: -webkit-linear-gradient(to right, #8e44ad, #97483f);  /* Chrome 10-25, Safari 5.1-6 */
+  background-image: linear-gradient(to right, #8e44ad, #b65247);
+  color: #FFFFFF;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: 0.5s;
+  background-size: 200% auto;
+}
 
-  .match-card:hover {
-    background: #c0392b;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #8e44ad, #97483f);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #8e44ad, #b65247);
-  }
-  
+.match-card:hover {
+background-position: right center;
+color: white;
+text-decoration: none;
+}  
   .match-card h2 {
     font-size: 24px;
     height: 70px;

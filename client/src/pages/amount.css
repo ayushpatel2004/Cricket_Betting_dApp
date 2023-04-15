@@ -1,0 +1,94 @@
+form {
+    margin: 50px auto;
+        max-width: 500px;
+        background-color: #AE67FA;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        padding: 20px;
+        box-shadow:4px 4px 1px pink;
+        
+  }
+  
+  /* style the form labels */
+  label {
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* style the form inputs */
+  input[type=text], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  
+  /* style the form submit button */
+  input[type=submit] {
+    background-color: #F49867;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px auto;
+  }
+  
+  /* style the form submit button on hover */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* style the form error messages */
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+
+  .general_statement{
+    color: white;
+    margin: 50px auto;
+    font-size: 30px;
+    display: inline-block;
+  }
+
+           
+  .btn-grad {
+    background-image: linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%);
+    text-align: center;
+    /* text-transform: uppercase; */
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    /* box-shadow: 0 0 20px #eee; */
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .popup{
+    position: fixed;
+    top:0;
+    left:0;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }

@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { WrapperContext } from '../context/wrappercontext'
 import { useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
+import "./amount.css";
 
 const Amount_Team = () => {
   const navigate = useNavigate();
@@ -25,13 +26,19 @@ const Amount_Team = () => {
     <div>
       {
         loadingteambet?<Loader/>:
-        <form>
+        <form className = "btn-grad">
+          <div>
+            <h1 className='general_statement'>
+               You are betting on : {selectedteam}
+                </h1>
+            </div>
             <label>
-                Amount:
+
+                Enter Bet Amount: 
                 <input required type="numeric" name="amount" onChange={onsubmit}/>
             </label>
             <br></br>
-            <input type="submit" value="Submit" onClick={placebetteam} />
+            <input type="submit" value="Place Bet" onClick={placebetteam}/>
         </form>
       } 
     </div>
