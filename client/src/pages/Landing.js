@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../assets/logo.svg';
+import LOGO from '../assets/LOGO.png'
 import './landing.css';
 import { useNavigate } from "react-router-dom";
 import { WrapperContext } from '../context/wrappercontext';
@@ -58,7 +59,7 @@ const Landing = () => {
                     <p>The DApp is a decentralized betting platform that allows users to place bets on upcoming sports matches using cryptocurrencies. It features a unique prize pool distribution algorithm that ensures fair and transparent payouts to winning users.</p>
                 </div>
                 <div className="crickbet__header-image">
-                    <img src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2017/09/14/609468-600720-442860-cricket-betting-rna.jpg" />
+                    <img src={LOGO} />
                 </div>
             </div>
         </>
