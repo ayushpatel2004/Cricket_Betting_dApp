@@ -25,8 +25,7 @@ const Amount_Player = (props) => {
     setbetvalue(e.target.value);
   }
   return(props.trigger) ? (
-    <div className='gradient__bg'>{
-      loadingplayerbet?<Loader/>:
+    <div className='gradient__bg'>
       <div className='popup'>
         <form className = "btn-grad">
           <div>
@@ -45,7 +44,6 @@ const Amount_Player = (props) => {
             <input type="submit" value="Place Bet" onClick={placebetplayer}/>
         </form>
         </div>
-    }
     </div>
   ):"";
 }

@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    background-color: white;
 
 }
 .team1_button:hover{
@@ -75,7 +75,7 @@ h1{
     text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
     box-shadow: 0 0 20px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
     position: absolute;
-    top: 120px;
+    top: 20px;
     bottom: 0px;
 }
 

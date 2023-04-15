@@ -55,7 +55,9 @@ const Player = () => {
     </div>
     </div>
     </div>
-    </>
+    </div>
+    }
+    </div>
   )
 }
 
