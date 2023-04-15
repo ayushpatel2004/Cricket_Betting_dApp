@@ -13,12 +13,30 @@
     
 
 }
-.btn:focus{
-    background:#6c757d;
+.team1_button:hover{
+    background:#e1d1f2;
     color: black;
     font-weight:bold;
     border-color: black;
 }
+
+.team1_button:hover h1{
+    color: #fff;
+    text-shadow: 2px 2px 0 #AE67FA, -2px -2px 0 #AE67FA, 2px -2px 0 #AE67FA, -2px 2px 0 #AE67FA;
+}
+
+.team2_button:hover{
+    background:#fadbca;
+    color: black;
+    font-weight:bold;
+    border-color: black;
+}
+
+.team2_button:hover h1{
+    color: #fff;
+    text-shadow: 2px 2px 0 #F49867, -2px -2px 0 #F49867, 2px -2px 0 #F49867, -2px 2px 0 #F49867;
+}
+
 .list{
     display: flex;
     flex-direction: column;
@@ -28,6 +46,7 @@
 .bet{
     display: flex;
     justify-content: space-around;
+    position: relative;
 }
 .playerbet{
     font-size:64px;
@@ -36,26 +55,28 @@
     padding: 30px;
     padding-bottom: 50px;
     font-family: var(--font-family);
-
+    color: #fff;
 }
 h1{
     margin-bottom: 30px;
     font-family: var(--font-family);
 }
 .vs{
-    height: 28vh;
-    width: 28vh;
+    height: 20vh;
+    width: 20vh;
     border-radius: 50%;
     border: 0.2rem solid;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 5rem;
-    color:#000000;
-    /* position: fixed; */
+    color:#fff;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
     box-shadow: 0 0 20px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
+    position: absolute;
+    top: 120px;
+    bottom: 0px;
 }
 
 .box{
@@ -69,4 +90,20 @@ img{
     height: auto;
     width: 30vw;
     margin: 10px;
+}
+
+.team1{
+    color: #AE67FA;
+}
+
+.team1:hover{
+    color: #fff;
+}
+
+.team2{
+    color: #F49867;
+}
+
+.team1:hover{
+    color: #fff;
 }
