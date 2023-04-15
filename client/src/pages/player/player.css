@@ -2,9 +2,9 @@ h1{
     color: white;
 }
 
-.btn{
-    width: fit-content;
-    height: fit-content;
+.btn1{
+    width: 100px;
+    height: 100px;
     border-width: 2px;
     border-radius: 20px;
     margin: 5px;
@@ -14,17 +14,17 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    color: white;
+    background-color: #fff;
+    color: red;
 
 }
-.btn:focus{
+/* .btn:focus{
     background:#6c757d;
     color: black;
     font-weight:bold;
     border-color: black;
-}
-.btn:hover{
+} */
+.btn1:hover{
     background-color: #6c757d;
 }
 .list{
@@ -33,10 +33,10 @@ h1{
     width: fit-content;
     align-items: center;
 }
-.bet{
+/* .bet{
     display: flex;
     justify-content: space-around;
-}
+} */
 .playerbet{
     font-size:64px;
     display: flex;
@@ -68,11 +68,15 @@ h1{
 }
 
 .box{
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     width: 30vw;
     align-items: center;
+    justify-content: center; */
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 .image{
     height: 80px;

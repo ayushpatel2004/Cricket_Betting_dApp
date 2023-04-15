@@ -17,9 +17,10 @@ const [ButtonState, setButtonState] = useState(false);
 const onsubmit = (e,team)=>{
   setButtonState(true);
     setselectedteam(team);
-    // navigate('transactionmatch');
 }
   return (
+    <>
+    <Navbar/>
     <div>
       {loadingteambet?<Loader/>:
       <div>
@@ -45,5 +46,6 @@ const onsubmit = (e,team)=>{
       </div>
       }
     </div>
+    </>
   )
 }
