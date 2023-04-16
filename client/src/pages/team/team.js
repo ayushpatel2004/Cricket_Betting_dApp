@@ -8,16 +8,27 @@ import team2 from '../../assets/team2.svg';
 import Amount_Team from '../amount_team';
 import { useState } from 'react';
 import Loader from '../../components/Loader';
+import Newpop from '../newpopteam';
 
 export default function TeamBet() {
+  const [isOpen, setIsOpen] = useState(false);
+
 const navigate = useNavigate();
-const {selectedmatchdetails,setselectedteam,loadingteambet} = useContext(WrapperContext);
+const {selectedmatchdetails,setselectedteam,loadingteambet,ButtonState2,betmatchhistory} = useContext(WrapperContext);
 const [ButtonState, setButtonState] = useState(false);
+
+const onclosepopup = (e) => {
+  navigate(-1);
+}
 
 const onsubmit = (e,team)=>{
   setButtonState(true);
+  setIsOpen(!isOpen);
     setselectedteam(team);
+
 }
+// console.log(betmatchhistory);
+const matchteam = betmatchhistory.team?selectedmatchdetails.team1:selectedmatchdetails.team2;
   return (
     <>
     <Navbar/>
@@ -27,7 +38,7 @@ const onsubmit = (e,team)=>{
       <div className="playerbet">TEAM BET</div>
       <div className='bet'>
         <div className='list'>
-          <button onClick={(e)=>onsubmit(e,selectedmatchdetails.team1)} type="button" class="btn btn-outline-secondary team1_button">
+          <button onClick={(e)=>onsubmit(e,selectedmatchdetails.team1)}type="button" class="btn btn-outline-secondary team1_button">
             <img src={team1} alt="" />
             <h1 className='team1'>{selectedmatchdetails.team1}</h1>
           </button>
@@ -39,8 +50,8 @@ const onsubmit = (e,team)=>{
             <h1 className='team2'>{selectedmatchdetails.team2}</h1>
           </button>
 
-          <Amount_Team trigger = {ButtonState} setTrigger = {setButtonState}></Amount_Team>
-
+          <Amount_Team trigger = {ButtonState} setTrigger = {setButtonState} isOpen={isOpen}></Amount_Team>
+          <Newpop trigger={ButtonState2} setTrigger={onclosepopup} amount={betmatchhistory.amount} team={matchteam}></Newpop>
         </div>
       </div>
       </div>

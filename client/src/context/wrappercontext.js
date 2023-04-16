@@ -4,6 +4,7 @@ import { contractAddress, contractABI_Match, contractABI_Wrapper, contractABI_Pl
 
 import { ethers } from 'ethers';
 import { json } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 // const ethers = require("ethers")
 
 export const WrapperContext = React.createContext();
@@ -35,6 +36,8 @@ const createEthereumContractMatch = (contractaddress) => {
 
 export const WrapperProvider = ({ children }) => {
 
+  // const navigate = useNavigate();
+
     const [currentAccount, setCurrentAccount] = useState("");
     const [matchinfolist, setmatchinfolist] = useState([]);
     const [completedmatchlist,setcompletedmathlist] = useState([]);
@@ -50,6 +53,9 @@ export const WrapperProvider = ({ children }) => {
     const [selectedplayer,setselectedplayer] = useState("");
     const [betplayerhistory,setbetplayerhistory] = useState([]);
     const [betplayercount,setbetplayercount] = useState(0);
+    const [betmatchhistory,setbetmatchhistory] = useState({amount:"",team:""});
+    const [ButtonState2, setButtonState2] = useState(false);
+    const [ButtonState3, setButtonState3] = useState(false);
 
     const [loadingteambet,setloadingteambet] = useState(false);
     const [loadingplayerbet,setloadingplayerbet] = useState(false);
@@ -91,8 +97,7 @@ export const WrapperProvider = ({ children }) => {
 
     const setmatchdetails = async ()=>{
       
-      const details = await selectedmatch.viewmatch()
-      console.log(details.team1);
+      const details = await selectedmatch.viewmatch();
       setselectedmatchdetails({team1:details.team1,team2:details.team2});
     }
     useEffect(()=>{
@@ -142,15 +147,25 @@ export const WrapperProvider = ({ children }) => {
     useEffect(()=>{
       // window.localStorage.setItem('selectedmatch',selectedmatch);
       // if(loadingplayerdisplay){
+        // console.log("inside contract");
       try {
       if (!ethereum) return alert("Please install MetaMask.");
 
       if(selectedmatch==null||selectedmatch=='') return;
 
       // selectedmatchdetails();
-      setmatchdetails();  
+      setmatchdetails(); 
+      
+      selectedmatch.bethistory().then((res)=>{
+        // console.log(res);
+        const match = res.team?selectedmatchdetails.team1:selectedmatchdetails.team2;
+        console.log(match);
+        setbetmatchhistory({amount:ethers.utils.formatEther(parseInt(res.amount).toString()),team:res.team});
+        if(ethers.utils.formatEther(parseInt(res.amount).toString())>0) setButtonState2(true);
+        else setButtonState2(false);
+      })
 
-      console.log(selectedmatch.address);
+      // console.log(selectedmatch.address);
       window.localStorage.setItem('selectedmatchaddress',selectedmatch.address);
 
       const playercontractaddress = selectedmatch.getplayercontract();
@@ -161,6 +176,8 @@ export const WrapperProvider = ({ children }) => {
         const playerhistory = res.map((history)=>{
           return {player:history.player,amount:ethers.utils.formatEther(parseInt(history.amount).toString())}
         })
+        if(playerhistory.length>0) setButtonState3(true);
+        else setButtonState3(false); 
         setbetplayerhistory(playerhistory);
         setbetplayercount(playerhistory.length);
       });
@@ -266,6 +283,7 @@ export const WrapperProvider = ({ children }) => {
     
           if (accounts.length) {
             setCurrentAccount(accounts[0]);
+            // navigate('home');
 
           } else {
             console.log("No accounts found");
@@ -357,7 +375,14 @@ export const WrapperProvider = ({ children }) => {
             setloadingplayerdisplay,
             loadingplayerdisplay,
             loadingactivematch,
-            loadingcompletedmatch
+            loadingcompletedmatch,
+            ButtonState2, 
+            ButtonState3, 
+            setButtonState2,
+            setButtonState3,
+            betmatchhistory,
+            betplayerhistory,
+            betplayercount
         }}>
             {children}
         </WrapperContext.Provider>

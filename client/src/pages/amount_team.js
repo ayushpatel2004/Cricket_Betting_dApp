@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
 import "./amount.css";
 
-const Amount_Team = (props) => {
+const Amount_Team = (props, isOpen) => {
   const navigate = useNavigate();
   const {setbetvalue,betvalue,placeteambet,selectedteam} = useContext(WrapperContext);
   const placebetteam =async (e) => {
@@ -23,6 +23,8 @@ const Amount_Team = (props) => {
     setbetvalue(e.target.value);
   }
   return(props.trigger) ? (
+    <div className={`popup-wrapper ${isOpen ? 'open' : ''}`}>
+      <div className="popup-content">
     <div className='gradient__bg'>
         <div className='popup'>
         <form className = "btn-grad">
@@ -43,6 +45,7 @@ const Amount_Team = (props) => {
             <br></br>
             <input type="submit" value="Place Bet" onClick={placebetteam}/>
         </form>
+        </div></div>
         </div>
     </div>
   ):"";

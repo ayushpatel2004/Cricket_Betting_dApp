@@ -144,3 +144,21 @@ form {
   padding: 10%;
   font-size: 18px;
 }
+
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* darken the background */
+  backdrop-filter: blur(50px); /* apply a blur effect */
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0; /* hide the wrapper by default */
+  pointer-events: none; /* disable pointer events */
+}
+
+.popup-wrapper.open {
+  opacity: 1; /* show the wrapper when open prop is true */
+  pointer-events: auto; /* enable pointer events */
+}

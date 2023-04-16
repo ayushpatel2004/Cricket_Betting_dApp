@@ -7,12 +7,14 @@ import Amount_Player from '../amount_player';
 import player2 from '../../assets/player2.svg';
 
 const PlayerCard2 = (props) => {
+    const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const {setselectedplayer} = useContext(WrapperContext);
     const [ButtonState, setButtonState] = useState(false);
     
      onsubmit = (e,player) => {
         setButtonState(true);
+        setIsOpen(isOpen);
         setselectedplayer(player);
     }
     return(
@@ -21,7 +23,7 @@ const PlayerCard2 = (props) => {
                 <img src={player2} alt="My Image" className='player_image'/>
                 <h1 className='team2'>{props.playername}</h1>
             </button>
-            <Amount_Player trigger = {ButtonState} setTrigger = {setButtonState}></Amount_Player>
+            <Amount_Player trigger = {ButtonState} setTrigger = {setButtonState} isOpen={isOpen}></Amount_Player>
         </>
         );
 }

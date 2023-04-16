@@ -5,7 +5,7 @@ import { WrapperContext } from '../context/wrappercontext'
 import Loader from '../components/Loader';
 import "./amount.css";
 
-const Amount_Player = (props) => {
+const Amount_Player = (props, isOpen) => {
   const navigate = useNavigate();
   const {setbetvalue,betvalue,placeplayerbet,selectedplayer,loadingplayerbet} = useContext(WrapperContext);
   const placebetplayer =async (e) => {
@@ -25,6 +25,8 @@ const Amount_Player = (props) => {
     setbetvalue(e.target.value);
   }
   return(props.trigger) ? (
+    <div className={`popup-wrapper ${isOpen ? 'open' : ''}`}>
+      <div className="popup-content">
     <div className='gradient__bg'>
       <div className='popup'>
         <form className = "btn-grad">
@@ -46,6 +48,8 @@ const Amount_Player = (props) => {
             <input type="submit" value="Place Bet" onClick={placebetplayer}/>
         </form>
         </div>
+        </div>
+    </div>
     </div>
   ):"";
 }

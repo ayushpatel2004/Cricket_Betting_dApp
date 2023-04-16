@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../assets/LOGO2.svg';
 import LOGO1 from '../../assets/LOGO1.svg'
@@ -11,6 +11,11 @@ const Landing = () => {
 	const navigate = useNavigate();
 
     const {connectWallet,currentAccount} = useContext(WrapperContext);
+
+    useEffect(()=>{
+        if(!currentAccount) return;
+        navigate('home');
+    },[currentAccount]);
 
     const onsubmit = (e) =>{
         connectWallet();
