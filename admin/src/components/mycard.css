@@ -81,6 +81,11 @@
     background-size: 200% auto;
 }
 
+.match-card:hover {
+  background-position: right center;
+  color: white;
+  text-decoration: none;
+  }
   .match-card h2 {
     font-size: 24px;
     height: 70px;

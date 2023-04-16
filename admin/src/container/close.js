@@ -30,44 +30,44 @@ const Close = (props) => {
     return(props.trigger) ? (
     <div className='gradient__bg'>
         <div className='popup'>
-        <div>
-            <button onClick={()=> props.setTrigger(false)} className='cross-button'></button>
-          </div>
-        <form className='btn-grad'>
-            <label>
-                <h3>WINNING TEAM:</h3>
-                <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                <Select
-                    labelId="demo-select-small"
-                    id="demo-select-small"
-                    onChange={handleChange}
-                    >
-                    <MenuItem value="">
-                    <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={selectedmatch.team1}>{selectedmatch.team1}</MenuItem>
-                    <MenuItem value={selectedmatch.team2}>{selectedmatch.team2}</MenuItem>
-                </Select>
-                </FormControl>
-            </label>
-            <br></br>
-            <label>
-                Player1:
-                <input required type="text" name="player1" onChange={(e)=>handleChangeList(e,"player1")}/>
-            </label>
-            <br></br>
-            <label>
-                Player2:
-                <input required type="text" name="player2" onChange={(e)=>handleChangeList(e,"player2")}/>
-            </label>
-            <br></br>
-            <label>
-                Player3:
-                <input required type="text" name="player3" onChange={(e)=>handleChangeList(e,"player3")}/>
-            </label>
-            <br></br>
-            <input onClick={onsubmit} type="submit" value="Declare Result" />
-        </form>
+            <div>
+                <button onClick={()=> props.setTrigger(false)} className='cross-button'></button>
+            </div>
+            <form className='btn-grad'>
+                <label>
+                    <h3>WINNING TEAM:</h3>
+                    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+                        <Select
+                            labelId="demo-select-small"
+                            id="demo-select-small"
+                            onChange={handleChange}
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={selectedmatch.team1}>{selectedmatch.team1}</MenuItem>
+                            <MenuItem value={selectedmatch.team2}>{selectedmatch.team2}</MenuItem>
+                        </Select>
+                    </FormControl>
+                </label>
+                <br></br>
+                <label>
+                    Player1:
+                    <input required type="text" name="player1" onChange={(e)=>handleChangeList(e,"player1")}/>
+                </label>
+                <br></br>
+                <label>
+                    Player2:
+                    <input required type="text" name="player2" onChange={(e)=>handleChangeList(e,"player2")}/>
+                </label>
+                <br></br>
+                <label>
+                    Player3:
+                    <input required type="text" name="player3" onChange={(e)=>handleChangeList(e,"player3")}/>
+                </label>
+                <br></br>
+                <input onClick={onsubmit} type="submit" value="Declare Result" />
+            </form>
         </div>
     </div>
     ):"";
