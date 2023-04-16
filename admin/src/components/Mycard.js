@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { WrapperContext } from "../context/wrappercontext";
 import { useState } from 'react';
 import './mycard.css'
-import Close from '../container/close'
+import Close from '../container/close/close'
 // import {Navbar} from "./container"
 
 const Mycard=({team1,team2,contract,venue,date,time})=>{
