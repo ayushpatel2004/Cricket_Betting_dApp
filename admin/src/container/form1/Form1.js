@@ -1,9 +1,9 @@
 import { Button } from "@mui/material";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { WrapperContext } from "../context/wrappercontext";
+import { WrapperContext } from "../../context/wrappercontext";
 import './form1.css';
-import Navbar from "./navbar/Navbar";
+import Navbar from "../navbar/Navbar";
 
 const Form1=()=>{
     const navigate = useNavigate();

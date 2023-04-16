@@ -1,11 +1,11 @@
 import { Button } from "@mui/material";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Mycard from "../components/Mycard"
-import { WrapperContext } from "../context/wrappercontext";
+import Mycard from "../../components/Mycard"
+import { WrapperContext } from "../../context/wrappercontext";
 import './home.css'
-import Loader from "../components/Loader";
-import MyCard2 from "../components/pastMatch";
+import Loader from "../../components/Loader";
+import MyCard2 from "../../components/pastMatch";
 
 const Home=()=>{
     const {connectWallet,currentAccount,matchinfolist,loadingactivematch,loadingmatchcreate,loadingmatchclose,completedmatchlist,loadingcompletedmatch} = useContext(WrapperContext);

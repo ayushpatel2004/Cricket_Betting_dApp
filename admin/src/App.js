@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import Home from './container/Home';
-import Form1 from './container/Form1';
+import Home from './container/home/Home';
+import Form1 from './container/form1/Form1';
 import Result from './container/Result';
 import { WrapperContext } from './context/wrappercontext';
 
