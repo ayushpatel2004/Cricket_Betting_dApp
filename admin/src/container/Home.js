@@ -14,6 +14,8 @@ const Home=()=>{
             {(!currentAccount) && 
                 <Button onClick={connectWallet} variant="contained">Connect Wallet</Button>
             }
+
+            <div>
             <div className="list">
                 <div className="ongoing">ONGOING MATCHES</div>
                 <div className="match-list">
@@ -24,8 +26,9 @@ const Home=()=>{
                     }
                 </div>
             </div>
+            
             <div className="createMatch"><button className="create-match"  onClick={() => navigate('matchinput')} variant="contained">Create Match</button></div>
-
+            </div>
         </div>
     )
 }

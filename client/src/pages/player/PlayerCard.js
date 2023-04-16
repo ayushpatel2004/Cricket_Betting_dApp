@@ -10,7 +10,7 @@ const PlayerCard = (props) => {
     const {setselectedplayer} = useContext(WrapperContext);
     const [ButtonState, setButtonState] = useState(false);
     
-     onsubmit = (e,player) => {
+    onsubmit = (e,player) => {
         setButtonState(true);
         setselectedplayer(player);
     }

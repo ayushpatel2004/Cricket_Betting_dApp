@@ -29,6 +29,9 @@ const Result=()=>{
         <div>
         {loadingmatchclose?<Loader/>:
         <form>
+            {/* <div>
+            <button onClick={()=> props.setTrigger(false)} className='cross-button'></button>
+          </div> */}
             <label>
                 Winning Team:
                 <FormControl sx={{ m: 1, minWidth: 120 }} size="small">

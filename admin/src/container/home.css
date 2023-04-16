@@ -26,7 +26,7 @@
   }
 
 .list{
-    height:87vh;
+    height:fit-content;
 }
 .create-match {
     margin-left: 10px;

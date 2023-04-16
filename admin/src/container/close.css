@@ -1,0 +1,146 @@
+form {
+    margin: 50px auto;
+        max-width: 500px;
+        background-color: #AE67FA;
+        border-radius: 10px;
+        /* box-shadow: 0 2px 10px rgba(0,0,0,0.2); */
+        padding: 20px;
+        /* box-shadow:4px 4px 1px pink; */
+        
+  }
+  
+  /* style the form labels */
+  label {
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* style the form inputs */
+  input[type=text], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  
+  /* style the form submit button */
+  input[type=submit] {
+    background-color: #F49867;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px auto;
+  }
+  
+  /* style the form submit button on hover */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* style the form error messages */
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+
+  .general_statement{
+    color: white;
+    margin: 50px auto;
+    font-size: 30px;
+    display: inline-block;
+  }
+
+           
+  .btn-grad {
+    background-image: linear-gradient(to right, #742e82 0%, #9733EE  51%, #DA22FF  100%);
+    text-align: center;
+    /* text-transform: uppercase; */
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    /* box-shadow: 0 0 20px #eee; */
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .cross-button {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 63px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 40%;
+    background-color: transparent;
+    border-color: transparent;
+    padding-right: 0;
+  }
+  
+  .cross-button::before,
+  .cross-button::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .cross-button::before {
+    transform: rotate(45deg);
+  }
+  
+  .cross-button::after {
+    transform: rotate(-45deg);
+  }
+  
+.form_field_text{
+  font-weight: bolder;
+  font-size: 22px;
+  margin-bottom: 0%;
+  font-family: var(--font-family);
+  
+}
+
+.form_field_properties{
+  height: 30px;
+  width: 200px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 20px;
+  padding: 10%;
+  font-size: 18px;
+}
