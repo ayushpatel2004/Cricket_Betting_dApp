@@ -6,7 +6,8 @@ import Loader from '../../components/Loader';
 import { useState } from 'react';
 import Amount_Player from '../amount_player';
 import { Navbar } from '../../containers';
-import PlayerCard from './PlayerCard'
+import PlayerCard1 from './PlayerCard1'
+import PlayerCard2 from './PlayerCard2'
 
 const Player = () => {
 
@@ -23,7 +24,7 @@ const Player = () => {
                         <h1 className="gradient__text">{selectedmatchdetails.team1}</h1>
                         <div className='box'>
                             {playerlist1.map((player)=>{
-                                return <PlayerCard playername={player}/>
+                                return <PlayerCard1 playername={player}/>
                             })}
                         </div>
                     </div>
@@ -32,7 +33,7 @@ const Player = () => {
                         <h1 className="gradient__text">{selectedmatchdetails.team2}</h1>
                         <div className='box'>
                             {playerlist2.map((player)=>{
-                                return <PlayerCard playername={player}/>
+                                return <PlayerCard2 playername={player}/>
                             })}
                         </div>
                     </div>
