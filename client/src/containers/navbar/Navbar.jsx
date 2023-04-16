@@ -12,7 +12,7 @@ const Navbar = () => {
                         <img src={logo} />
                     </div>
                     <div className="crickbet__navbar-links_container">
-                        <p><a href="#home">Home</a></p>
+                        <p><a href="/home">Home</a></p>
                         <p><a href="#wcrickbet">About Us</a></p>
                         <p><a href="#FAQs">FAQs</a></p>
                         <p><a href="#help">Help</a></p>
