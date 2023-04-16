@@ -4,7 +4,6 @@ import Home from './container/Home';
 import Form1 from './container/Form1';
 import Result from './container/Result';
 import { WrapperContext } from './context/wrappercontext';
-import About from './container/aboutus/aboutus';
 
 function App() {
   return (
