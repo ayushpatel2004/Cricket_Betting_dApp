@@ -17,7 +17,7 @@ const Home=()=>{
                 <Button onClick={connectWallet} variant="contained">Connect Wallet</Button>
             }
 
-            <div>
+            {(currentAccount)&&<div>
             <div className="list">
                 <div className="ongoing">ONGOING MATCHES</div>
                 {loadingactivematch||loadingmatchclose||loadingmatchcreate?<Loader/>:
@@ -43,7 +43,7 @@ const Home=()=>{
                     }
                 </div>}
             </div>
-            </div>
+            </div>}
         </div>
     )
 }
