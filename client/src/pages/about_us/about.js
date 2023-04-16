@@ -1,9 +1,11 @@
 import React from 'react'
 import './about.css'
 import Ayush from './images/Ayush.png'
+import { Navbar } from '../../containers'
 const About=() => {
   return (<>
-    <h1 className='page'>About Us</h1>
+    <Navbar/>
+    <div className='page'>About Us</div>
     <div className='about_us_page'>
         
         <div className="team-card">

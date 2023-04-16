@@ -48,6 +48,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-size:64px;
+    display: flex;
+    justify-content: center;
+    
+    color: white;
+    font-family: var(--font-family);
+    padding-bottom: 50px;
   }
   .about_us_page{
     display: flex;
@@ -55,11 +62,7 @@
     align-items: center;
     flex-wrap: wrap;
   }
-  h1{
-    color: white;
-    font-size: 4rem;
-    margin-top: 20px;
-  }
+  
   h2{
     color: black;
     font-size: 4rem;
