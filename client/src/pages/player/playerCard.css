@@ -7,8 +7,8 @@
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    width: 170px;
-    height: 200px;
+    width: 220px;
+    height: 240px;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -25,7 +25,7 @@
   
   .my-button img {
     width: auto;
-    height: 150px;
+    height: 190px;
     display: block;
     position: absolute;
     top: 0px;    
@@ -93,7 +93,7 @@ h1{
     width: 20vh;
     border-radius: 50%;
     border: 0.2rem solid;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     font-size: 5rem;
@@ -101,7 +101,7 @@ h1{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
     box-shadow: 0 0 20px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000;
-    position: absolute;
+    position: fixed;
     top: 20px;
     bottom: 0px;
 }
@@ -121,7 +121,7 @@ img{
 
 .team1{
     color: #AE67FA;
-    top: 140px;
+    top: 180px;
     font-weight: 1000;
     font-style: italic;
     line-height: 50px;
@@ -133,7 +133,7 @@ img{
 
 .team2{
     color: #F49867;
-    top: 140px;
+    top: 180px;
     font-weight: 1000;
     font-style: italic;
     line-height: 50px;
