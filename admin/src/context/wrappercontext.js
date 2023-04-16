@@ -50,6 +50,8 @@ export const WrapperProvider = ({ children }) => {
     const [loadingmatchcreate,setloadingmatchcreate] = useState(false);
     const [loadingmatchclose,setloadingmatchclose] = useState(false);
 
+    const [loadingactivematch,setloadingactivematch] = useState(false);
+
     const handleChange = (e, name) => {
       setFormDataMatchinfo((prevState) => ({ ...prevState, [name]: e.target.value }));
     };
@@ -73,6 +75,7 @@ export const WrapperProvider = ({ children }) => {
     const activematchlist = async () => {
       try {
         if (ethereum) {
+          setloadingactivematch(true);
           const WrapperContract = createEthereumContractWrapper();
 
           const activematchcontractaddress = await WrapperContract.viewlivematches();
@@ -95,6 +98,7 @@ export const WrapperProvider = ({ children }) => {
             });
           }
           setmatchinfolist(list);
+          setloadingactivematch(false);
         }
       } catch (error) {
         console.log(error);
@@ -257,7 +261,8 @@ export const WrapperProvider = ({ children }) => {
             loadingmatchclose,
             setformvenueinfo,
             setformdateinfo,
-            setformtimeinfo
+            setformtimeinfo,
+            loadingactivematch
         }}>
             {children}
         </WrapperContext.Provider>

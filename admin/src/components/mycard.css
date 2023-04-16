@@ -81,6 +81,11 @@
     background-size: 200% auto;
 }
 
+.match-card:hover {
+  background-position: right center;
+  color: white;
+  text-decoration: none;
+  }
   .match-card h2 {
     font-size: 24px;
     height: 70px;
@@ -101,8 +106,8 @@
   }
   
   .bet-toggle button {
-    background-color: #333;
-    color: #fff;
+    background-color: #fff;
+    color: #333;
     font-size: 16px;
     font-weight: bold;
     padding: 10px 20px;
@@ -111,17 +116,18 @@
     cursor: pointer;
     margin-left: 63px;
   }
-  
-  .bet-toggle button.active {
-    background-color: #fff;
-    color: #333;
-  }
-  
-  
+
   #winning-amount :hover{
     background-color: #000;
     color: #fff;
   }
-
   
   
+  .closeMatch :hover{
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .pop-form{
+    z-index: 20;
+  }

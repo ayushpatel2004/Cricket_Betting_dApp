@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Mycard from "../components/Mycard"
 import { WrapperContext } from "../context/wrappercontext";
 import './home.css'
+import Loader from "../components/Loader";
 
 const Home=()=>{
-    const {connectWallet,currentAccount,matchinfolist} = useContext(WrapperContext);
+    const {connectWallet,currentAccount,matchinfolist,loadingactivematch} = useContext(WrapperContext);
     const navigate = useNavigate();
     return (
         <div className="gradient__bg">
@@ -18,13 +19,14 @@ const Home=()=>{
             <div>
             <div className="list">
                 <div className="ongoing">ONGOING MATCHES</div>
+                {loadingactivematch?<Loader/>:
                 <div className="match-list">
                     {
                         matchinfolist.map((match,i)=>{
                             return <Mycard key={i}{...match}/>
                         })
                     }
-                </div>
+                </div>}
             </div>
             
             <div className="createMatch"><button className="create-match"  onClick={() => navigate('matchinput')} variant="contained">Create Match</button></div>
