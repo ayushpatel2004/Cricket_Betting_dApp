@@ -36,6 +36,8 @@ const createEthereumContractMatch = (contractaddress) => {
 export const WrapperProvider = ({ children }) => {
 
     const [currentAccount, setCurrentAccount] = useState("");
+    const [completedmatchlist,setcompletedmathlist] = useState([]);
+
     const [formDataMatchinfo, setFormDataMatchinfo] = useState({team1:"",team2:""});
     const [formDataPlayer1info, setFormDataPlayer1info] = useState({team1_player1:"",team1_player2:"",team1_player3:"",team1_player4:"",team1_player5:"",team1_player6:"",team1_player7:"",team1_player8:"",team1_player9:"",team1_player10:"",team1_player11:"",});
     const [formDataPlayer2info, setFormDataPlayer2info] = useState({team2_player1:"",team2_player2:"",team2_player3:"",team2_player4:"",team2_player5:"",team2_player6:"",team2_player7:"",team2_player8:"",team2_player9:"",team2_player10:"",team2_player11:"",});
@@ -51,6 +53,7 @@ export const WrapperProvider = ({ children }) => {
     const [loadingmatchclose,setloadingmatchclose] = useState(false);
 
     const [loadingactivematch,setloadingactivematch] = useState(false);
+    const [loadingcompletedmatch,setloadingcompletedmatch] = useState(false);
 
     const handleChange = (e, name) => {
       setFormDataMatchinfo((prevState) => ({ ...prevState, [name]: e.target.value }));
@@ -76,6 +79,7 @@ export const WrapperProvider = ({ children }) => {
       try {
         if (ethereum) {
           setloadingactivematch(true);
+          setloadingcompletedmatch(true);
           const WrapperContract = createEthereumContractWrapper();
 
           const activematchcontractaddress = await WrapperContract.viewlivematches();
@@ -99,6 +103,33 @@ export const WrapperProvider = ({ children }) => {
           }
           setmatchinfolist(list);
           setloadingactivematch(false);
+
+          const completedmatchaddress = await WrapperContract.viewclosematches();
+
+          const completedmatchcontract = [];
+
+          for (let index = completedmatchaddress.length-1; index >=0; index--) {
+            const element = completedmatchaddress[index];
+            console.log(element);
+            completedmatchcontract.push(createEthereumContractMatch(element));
+          }
+          // console.log(completedmatchcontract);
+          const listcompleted = [];
+          for (let index = 0; index < completedmatchcontract.length; index++) {
+            const element = await completedmatchcontract[index].viewmatch();
+            const amount = await completedmatchcontract[index].amountrefunded();
+            listcompleted.push({
+              team1: element.team1,
+              team2: element.team2,
+              venue: element.venue,
+              time: element.time,
+              date: element.date,
+              refundamount: ethers.utils.formatEther(parseInt(amount._hex).toString())
+            });
+          }
+
+          setcompletedmathlist(listcompleted);
+          setloadingcompletedmatch(false);
         }
       } catch (error) {
         console.log(error);
@@ -262,7 +293,9 @@ export const WrapperProvider = ({ children }) => {
             setformvenueinfo,
             setformdateinfo,
             setformtimeinfo,
-            loadingactivematch
+            loadingactivematch,
+            completedmatchlist,
+            loadingcompletedmatch
         }}>
             {children}
         </WrapperContext.Provider>

@@ -5,9 +5,10 @@ import Mycard from "../components/Mycard"
 import { WrapperContext } from "../context/wrappercontext";
 import './home.css'
 import Loader from "../components/Loader";
+import MyCard2 from "../components/pastMatch";
 
 const Home=()=>{
-    const {connectWallet,currentAccount,matchinfolist,loadingactivematch} = useContext(WrapperContext);
+    const {connectWallet,currentAccount,matchinfolist,loadingactivematch,loadingmatchcreate,loadingmatchclose,completedmatchlist,loadingcompletedmatch} = useContext(WrapperContext);
     const navigate = useNavigate();
     return (
         <div className="gradient__bg">
@@ -19,7 +20,7 @@ const Home=()=>{
             <div>
             <div className="list">
                 <div className="ongoing">ONGOING MATCHES</div>
-                {loadingactivematch?<Loader/>:
+                {loadingactivematch||loadingmatchclose||loadingmatchcreate?<Loader/>:
                 <div className="match-list">
                     {
                         matchinfolist.map((match,i)=>{
@@ -28,8 +29,20 @@ const Home=()=>{
                     }
                 </div>}
             </div>
+
             
             <div className="createMatch"><button className="create-match"  onClick={() => navigate('matchinput')} variant="contained">Create Match</button></div>
+            <div className="list">
+                <div className="ongoing">COMPLETED MATCHES</div>
+                {loadingcompletedmatch||loadingmatchclose||loadingmatchcreate?<Loader/>:
+                <div className="match-list">
+                    {
+                        completedmatchlist.map((match,i)=>{
+                            return <MyCard2 key={i}{...match}/>
+                        })
+                    }
+                </div>}
+            </div>
             </div>
         </div>
     )

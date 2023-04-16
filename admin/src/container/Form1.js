@@ -41,7 +41,7 @@ const Form1=()=>{
 
         if(!team1 || !team2) return;
 
-        await createMatch();
+        createMatch();
         navigate(-1);
     }
     return (

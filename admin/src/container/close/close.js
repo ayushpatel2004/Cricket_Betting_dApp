@@ -23,9 +23,9 @@ const Close = (props) => {
         e.preventDefault();
         if(!winningteam || !player1 ||!player2||!player3) return;
 
-        await closeMatch();
+        closeMatch();
 
-        navigate(-1);
+        // navigate(-1);
     }
     return(props.trigger) ? (
     <div className='gradient__bg'>
