@@ -1,0 +1,60 @@
+.team-card {
+    background-image: #c0392b;  /* fallback for old browsers */
+    background-image: -webkit-linear-gradient(to right, #8e44ad, #97483f);  /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(to right, #8e44ad, #b65247);
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 320px;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: 0.5s;
+    background-size: 200% auto;
+    text-align: center;
+}
+
+.team-card:hover {
+  background-position: right center;
+  color: white;
+  text-decoration: none;
+  }
+  .team-card h2 {
+    font-size: 24px;
+    height: 70px;
+  }
+  
+  .team-card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .team-image{
+    width: 270px;
+    height: 250px;
+  }
+
+  .page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .about_us_page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  h1{
+    color: white;
+    font-size: 4rem;
+  }
+  h2{
+    color: white;
+    font-size: 4rem;
+    font-family: var(--font-family);
+  }
