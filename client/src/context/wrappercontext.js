@@ -3,6 +3,7 @@ import React,{useEffect,useState} from 'react'
 import { contractAddress, contractABI_Match, contractABI_Wrapper, contractABI_Player} from '../utils/constants'
 
 import { ethers } from 'ethers';
+import { json } from 'react-router-dom';
 // const ethers = require("ethers")
 
 export const WrapperContext = React.createContext();
@@ -14,8 +15,6 @@ const createEthereumContractWrapper = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transactionsContract = new ethers.Contract(contractAddress, contractABI_Wrapper, signer);
-
-    // console.log(transactionsContract);
   
     return transactionsContract;
 };
@@ -41,6 +40,7 @@ export const WrapperProvider = ({ children }) => {
     const [completedmatchlist,setcompletedmathlist] = useState([]);
 
     const [selectedmatch,setselectedmatch] = useState(null);
+    const [selectedaddress,setselectedaddress] = useState("");
     const [playerlist1,setplayerlist1] = useState([]);
     const [playerlist2,setplayerlist2] = useState([]);
     const [selectedmatchdetails,setselectedmatchdetails] = useState({team1:"",team2:""});
@@ -48,6 +48,8 @@ export const WrapperProvider = ({ children }) => {
     const [betvalue,setbetvalue] = useState(0);
     const [playercontractselected,setplayercontractselected] =useState(null);
     const [selectedplayer,setselectedplayer] = useState("");
+    const [betplayerhistory,setbetplayerhistory] = useState([]);
+    const [betplayercount,setbetplayercount] = useState(0);
 
     const [loadingteambet,setloadingteambet] = useState(false);
     const [loadingplayerbet,setloadingplayerbet] = useState(false);
@@ -56,23 +58,78 @@ export const WrapperProvider = ({ children }) => {
     const [loadingcompletedmatch,setloadingcompletedmatch] = useState(false);
 
     useEffect(()=>{
-        try {
+      // setselectedmatch(window.localStorage.getItem('selectedmatch'));
+      const element = window.localStorage.getItem('selectedmatchaddress');
+      console.log(element);
+      if(element!=null) setselectedaddress(element);
+    },[]);
+    // useEffect(()=>{
+    //   const element = window.localStorage.getItem('playerlist1');
+    //   console.log(element);
+    //   // if(element!=null) setplayerlist1(element);
+    // },[]);
+    // useEffect(()=>{
+    //   const element = window.localStorage.getItem('playerlist2');
+    //   console.log(element);
+    //   // if(element!=null) setplayerlist2(element);
+    // },[]);
+    // useEffect(()=>{
+    //   const element = window.localStorage.getItem('selectedmatchdetails');
+    //   // console.log(element);
+    //   if(element!=null) setselectedmatchdetails(element);
+    // })
+    // useEffect(()=>{
+    //   if(selectedmatch!=null) console.log(selectedmatch.contract.address);
+    //   if(selectedmatch!=null) window.localStorage.setItem('selectedmatchaddress',selectedmatch.contract.address);
+    // },[selectedmatch]);
+    // useEffect(()=>{
+    //   window.localStorage.setItem('playerlist1',JSON.stringify(playerlist1));
+    // },[playerlist1]);
+    // useEffect(()=>{
+    //   window.localStorage.setItem('playerlist2',JSON.stringify(playerlist2));
+    // },[playerlist2]);
+
+    const setmatchdetails = async ()=>{
+      
+      const details = await selectedmatch.viewmatch()
+      console.log(details.team1);
+      setselectedmatchdetails({team1:details.team1,team2:details.team2});
+    }
+    useEffect(()=>{
+      console.log("inside");
+      try {
         if (!ethereum) return alert("Please install MetaMask.");
 
-        if(selectedmatch==null) return;
+        if(selectedaddress==null||selectedaddress=='') return;
 
-        const playercontractaddress = selectedmatch.getplayercontract();
+        console.log(selectedaddress);
 
-        const playercontract = createEthereumContractPlayer(playercontractaddress);
+        const matchcontracttemp  = createEthereumContractMatch(selectedaddress);
+        setselectedmatch(matchcontracttemp);
 
-        playercontract.viewplayer().then((res)=>{
-            setplayerlist1(res.player_info_team1);
-            setplayerlist2(res.player_info_team2);
-        });
+        // const playercontractaddress = selectedmatch.getplayercontract();
 
-        setplayercontractselected(playercontract);
+        // const playercontract = createEthereumContractPlayer(playercontractaddress);
 
-        setloadingplayerdisplay(false);
+        // playercontract.bethistory().then((res)=>{
+        //   const playerhistory = res.map((history)=>{
+        //     return {player:history.player,amount:ethers.utils.formatEther(parseInt(history.amount).toString())}
+        //   })
+        //   setbetplayerhistory(playerhistory);
+        //   setbetplayercount(playerhistory.length);
+        // });
+
+        // playercontract.viewplayer().then((res)=>{
+        //     setplayerlist1(res.player_info_team1);
+        //     setplayerlist2(res.player_info_team2);
+        // });
+
+        // // window.localStorage.setItem('playerlist1');
+        // // window.localStorage.setItem('playerlist2');
+
+        // setplayercontractselected(playercontract);
+
+        // setloadingplayerdisplay(false);
             
         } catch (error) {
             
@@ -80,7 +137,54 @@ export const WrapperProvider = ({ children }) => {
     
         throw new Error("No ethereum object");
         }
-    },[selectedmatch])
+    },[selectedaddress])
+
+    useEffect(()=>{
+      // window.localStorage.setItem('selectedmatch',selectedmatch);
+      // if(loadingplayerdisplay){
+      try {
+      if (!ethereum) return alert("Please install MetaMask.");
+
+      if(selectedmatch==null||selectedmatch=='') return;
+
+      // selectedmatchdetails();
+      setmatchdetails();  
+
+      console.log(selectedmatch.address);
+      window.localStorage.setItem('selectedmatchaddress',selectedmatch.address);
+
+      const playercontractaddress = selectedmatch.getplayercontract();
+
+      const playercontract = createEthereumContractPlayer(playercontractaddress);
+
+      playercontract.bethistory().then((res)=>{
+        const playerhistory = res.map((history)=>{
+          return {player:history.player,amount:ethers.utils.formatEther(parseInt(history.amount).toString())}
+        })
+        setbetplayerhistory(playerhistory);
+        setbetplayercount(playerhistory.length);
+      });
+
+      playercontract.viewplayer().then((res)=>{
+          setplayerlist1(res.player_info_team1);
+          setplayerlist2(res.player_info_team2);
+      });
+
+      // window.localStorage.setItem('playerlist1');
+      // window.localStorage.setItem('playerlist2');
+
+      setplayercontractselected(playercontract);
+
+      setloadingplayerdisplay(false);
+          
+      } catch (error) {
+          
+      console.log(error);
+  
+      throw new Error("No ethereum object");
+      }
+      // }
+    },[selectedmatch,loadingplayerdisplay])
 
     const activematchlist = async () => {
       try {
@@ -95,23 +199,27 @@ export const WrapperProvider = ({ children }) => {
           const livematchescontracts =[];
           for (let index = 0; index < activematchcontractaddress.length; index++) {
             const element = activematchcontractaddress[index];
-            console.log(element);
             if(element!=0)
             livematchescontracts.push(createEthereumContractMatch(element));
           }
           const list =[];
-          console.log(livematchescontracts);
+          // console.log(livematchescontracts);
+          // const playeraddress = [];
           for (let index = 0; index < livematchescontracts.length; index++) {
             const element = await livematchescontracts[index].viewmatch();
+            const element2 = await livematchescontracts[index].bethistory();
             list.push({
               team1: element.team1,
               team2: element.team2,
               venue: element.venue,
               time: element.time,
               date: element.date,
+              teambethistory: element2.team,
+              amountbethistory: ethers.utils.formatEther(parseInt(element2.amount).toString()),
               contract: livematchescontracts[index]
             });
           }
+          // console.log(list);
           setmatchinfolist(list);
           setloadingactivematch(false);
           const completedmatchaddress = await WrapperContract.viewclosematches();
@@ -123,7 +231,7 @@ export const WrapperProvider = ({ children }) => {
             console.log(element);
             completedmatchcontract.push(createEthereumContractMatch(element));
           }
-          console.log(completedmatchcontract);
+          // console.log(completedmatchcontract);
           const listcompleted = [];
           for (let index = 0; index < completedmatchcontract.length; index++) {
             const element = await completedmatchcontract[index].viewmatch();
@@ -137,7 +245,6 @@ export const WrapperProvider = ({ children }) => {
               refundamount: ethers.utils.formatEther(parseInt(amount._hex).toString())
             });
           }
-          console.log(listcompleted);
 
           setcompletedmathlist(listcompleted);
           setloadingcompletedmatch(false);

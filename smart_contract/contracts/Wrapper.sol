@@ -54,7 +54,13 @@ contract Match{
         string date;
         string venue;
     }
+
+    struct Betinfo{
+        bool team;
+        uint amount;
+    }
     mapping (address => uint) refundamount;
+    mapping (address => Betinfo) betsplaced;
     MatchInfo matches;
 
     event betplaced(address sender,uint amount);
@@ -74,6 +80,7 @@ contract Match{
         betters_wallet_address.push(payable(msg.sender));
         amountPlaced.push(msg.value);
         teamSelected.push(teambetplaced);
+        betsplaced[msg.sender]=Betinfo(teambetplaced,msg.value);
 
         emit betplaced(msg.sender,msg.value);
     }
@@ -84,6 +91,10 @@ contract Match{
 
     function viewbets() public view returns(address payable[] memory){
         return betters_wallet_address;
+    }
+
+    function bethistory() public view returns(Betinfo memory){
+        return betsplaced[msg.sender];
     }
 
     function amountrefunded() public view returns(uint){
@@ -155,7 +166,13 @@ contract Player {
         string [] player_info_team2;
     }
 
+    struct Betinfo{
+        string player;
+        uint amount;
+    }
+
     mapping (address => uint) refundamount;
+    mapping (address => Betinfo []) betsplaced;
 
     PlayerInfo players;
 
@@ -174,8 +191,13 @@ contract Player {
         betters_wallet_address.push(payable(msg.sender));
         amountPlaced.push(msg.value);
         playerSelected.push(playerbetplaced);
+        betsplaced[msg.sender].push(Betinfo(playerbetplaced,msg.value));
 
         emit betplaced(msg.sender,msg.value);
+    }
+
+    function bethistory() public view returns (Betinfo [] memory){
+        return betsplaced[msg.sender];
     }
 
     function viewbets() public view returns(address payable[] memory){
