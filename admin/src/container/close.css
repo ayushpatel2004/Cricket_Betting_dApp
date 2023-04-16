@@ -98,8 +98,8 @@ form {
     width: 20px;
     height: 20px;
     position: absolute;
-    top: 63px;
-    right: 10px;
+    top: 50px;
+    left: 15vw;
     cursor: pointer;
     border-radius: 40%;
     background-color: transparent;
@@ -111,9 +111,9 @@ form {
   .cross-button::after {
     content: "";
     position: absolute;
-    height: 2px;
+    height: 20px;
     width: 100%;
-    background-color: #fff;
+    /* background-color: transparent; */
     top: 50%;
     left: 0;
     transform: translateY(-50%);

@@ -12,22 +12,6 @@ import Loader from '../components/Loader';
 const Close = (props) => {
     const navigate = useNavigate();
     const {winningteam,setwinningteam,selectedmatch,closeMatch,winningplayers,handleChangeList,loadingmatchclose} = useContext(WrapperContext);  
-//     const placebetplayer =async (e) => {
-//         e.preventDefault();
-//     if(betvalue==0) return;
-//     if(selectedplayer=="") return;
-
-//     console.log(betvalue);
-//     console.log(selectedplayer);
-
-//     await placeplayerbet();
-//     navigate(-1);
-//   }
-//   const onsubmit=(e)=>{
-//     e.preventDefault();
-//     // console.log(e.target.value);
-//     setbetvalue(e.target.value);
-//   }
 
     const handleChange = (SelectChangeEvent) => {
         setwinningteam(SelectChangeEvent.target.value);
@@ -49,7 +33,7 @@ const Close = (props) => {
         <div>
             <button onClick={()=> props.setTrigger(false)} className='cross-button'></button>
           </div>
-        <form>
+        <form className='btn-grad'>
             <label>
                 <h3>WINNING TEAM:</h3>
                 <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -84,24 +68,6 @@ const Close = (props) => {
             <br></br>
             <input onClick={onsubmit} type="submit" value="Declare Result" />
         </form>
-        {/* <form className = "btn-grad">
-            <div>
-            <button onClick={()=> props.setTrigger(false)} className='cross-button'></button>
-            </div>
-            <div>
-            <h1 className='general_statement'>
-                You are betting on : <br/>{}
-                </h1>
-            </div>
-            <label>
-                <div className='form_field_text'>
-                Enter Bet Amount: 
-                </div><br/>
-                <input required type="numeric" name="amount" onChange={onsubmit} placeholder='Enter Amount' className='form_field_properties'/>
-            </label>
-            <br></br>
-            <input type="submit" value="Place Bet" onClick={placebetplayer}/>
-        </form> */}
         </div>
     </div>
     ):"";
