@@ -78,7 +78,7 @@ function FAQs() {
         <button className="question-button" onClick={toggleDisplay1}><div className="match-card12" > <div className="question"> What is an Ethereum-based cricket betting d-app? </div><div><IoIosArrowDown/> </div></div></button>
         {isDisplayOpen1 && (
             
-            <div className="answer" > <div className="answermessage">An Ethereum-based cricket betting dApp is a decentralized application built on the Ethereum blockchain that allows users to place bets on cricket matches using cryptocurrency. The dApp uses smart contracts to facilitate secure and transparent betting transactions without the need for intermediaries such as bookmakers. Users can connect their Ethereum wallets to the dApp and place bets on various outcomes of a cricket match, such as the winning team or the top scorer. The dApp also includes features such as real-time betting odds, and automatic payout distribution based on the outcome of the match.</div>
+            <div className="answer" > <div className="answermessage">An Ethereum-based cricket betting dApp is a decentralized application built on the Ethereum blockchain that allows users to place bets on cricket matches using cryptocurrency. The dApp uses smart contracts to facilitate secure and transparent betting transactions without the need for intermediaries such as bookmakers. Users can connect their Ethereum wallets to the dApp and place bets on various outcomes of a cricket match, such as the winning team or the top scorer. The dApp also includes features such as automatic payout distribution based on the outcome of the match.</div>
             
             </div>
             
@@ -210,7 +210,7 @@ function FAQs() {
         <button className="question-button" onClick={toggleDisplay15}><div className="match-card12" ><div className="question"> What are the fees and charges for using the d-app and MetaMask wallet? </div><div><IoIosArrowDown/> </div></div></button>
         {isDisplayOpen15 && (
             
-            <div className="answer" > <div className="answermessage">The d-app does not charge any fees for its use.</div>
+            <div className="answer" > <div className="answermessage">The d-app does not charge any fees for its use. However, there may be gas fees associated with transactions on the Ethereum network, which are paid to the miners who process the transactions. The amount of these fees depends on the network congestion. Additionally, MetaMask may charge a small fee for some of its services, such as network transactions. It is recommended to check the MetaMask documentation for more information on its fees and charges.</div>
             
             </div>
             
