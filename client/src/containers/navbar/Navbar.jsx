@@ -25,7 +25,7 @@ const Navbar = () => {
                     {toggleMenu && (
                         <div className="crickbet__navbar-menu_container scale-up-center">
                             <div className="crickbet__navbar-menu_container-links">
-                                <p><a href="#home">Home</a></p>
+                                <p><a href="/home">Home</a></p>
                                 <p><a href="/aboutus">About Us</a></p>
                                 <p><a href="/faqs">FAQs</a></p>
                                 <p><a href="#help">Help</a></p>
