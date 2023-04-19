@@ -31,10 +31,10 @@ const onsubmit = (e,team)=>{
 const matchteam = betmatchhistory.team?selectedmatchdetails.team1:selectedmatchdetails.team2;
   return (
     <>
-    <Navbar/>
     <div>
       {loadingteambet?<Loader/>:
       <div>
+        <Navbar/>
       <div className="playerbet">TEAM BET</div>
       <div className='bet'>
         <div className='list'>
