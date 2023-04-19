@@ -9,6 +9,7 @@ import AmountPlayer from './pages/amount_player';
 import FAQs from './pages/faqs/faqs';
 import './App.css';
 import About from './pages/about_us/about';
+import Help from './pages/help/help';
 
 const App = () => (
   <>
@@ -21,6 +22,7 @@ const App = () => (
       <Route exact path="/home/teambet/transactionmatch" element={<AmountMatch/>} />
       <Route exact path="/home/playerbet/transactionplayer" element={<AmountPlayer/>} />
       <Route exact path="/aboutus" element={<About/>} />
+      <Route exact path="/help" element={<Help/>} />
 
     </Routes>
   </>

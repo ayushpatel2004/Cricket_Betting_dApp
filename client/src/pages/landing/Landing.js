@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../assets/LOGO2.svg';
-import LOGO1 from '../../assets/LOGO1.svg'
+import LOGO1 from '../../assets/LOGO1.svg';
 import './landing.css';
 import { useNavigate } from "react-router-dom";
 import { WrapperContext } from '../../context/wrappercontext';
@@ -32,7 +32,7 @@ const Landing = () => {
                     <div className="crickbet__navbar-links_container">
                         <p><a href="/aboutus">About Us</a></p>
                         <p><a href="/faqs">FAQs</a></p>
-                        <p><a href="#help">Help</a></p>
+                        <p><a href="/help">Help</a></p>
                     </div>
                 </div>
                 <div className="crickbet__navbar-sign">
@@ -48,7 +48,7 @@ const Landing = () => {
                                 <p><a href="/home">Home</a></p>
                                 <p><a href="/aboutus">About Us</a></p>
                                 <p><a href="/faqs">FAQs</a></p>
-                                <p><a href="#help">Help</a></p>
+                                <p><a href="/help">Help</a></p>
                             </div>
                             <div className="crickbet__navbar-menu_container-links-sign">
                                 <button onClick={onsubmit} type="button">Connect to Metamask</button>

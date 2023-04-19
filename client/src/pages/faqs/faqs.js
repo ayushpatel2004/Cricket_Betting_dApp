@@ -152,7 +152,23 @@ function FAQs() {
         <button className="question-button" onClick={toggleDisplay8}><div className="match-card12" ><div className="question"> How are the betting odds and payout rates determined? </div><div><IoIosArrowDown/> </div></div></button>
         {isDisplayOpen8 && (
             
-            <div className="answer" > <div className="answermessage">This is the sliding display. This is the sliding display.This is the sliding display.This is the sliding display.This is the sliding display.</div>
+            <div className="answer" > <div className="answermessage">
+              <h3>Rules of Prize Pool Distribution</h3>
+              <br></br>
+              <br></br>
+            <h3>Betting on players :-</h3>
+            When people place bets on cricket matches in this web app, their bets and selected players are stored in a computer program. The total amount of all the bets is added together, and this money goes into an account controlled by the app owner.
+            Once the match is over, the program checks which top-3 players did the best, and counts how many people bet on them. If all bettors picked the winning players, they each get their money back without any bonus. But if some people picked the wrong players, half of their lost bets are used to give bonuses to the winners.     
+            The bonus is extra money on top of what the winners originally bet. However, the program takes a small percentage of this bonus money as a fee. The winners' refunds, including the bonus money, can't be more than twice the original bet amount.      
+            If someone picked a losing player, they only get back half of what they bet. The money is taken out of the app owner's account and given back to the bettors. The amount of money left in the app owner's account after all the refunds are given out is the profit they made from running the betting app.
+            <br></br>
+            <br></br>
+            <h3>Betting on team :-</h3>
+            In this web app where people can bet on cricket matches, their bets and selected teams are saved in a computer program. All the bets made by everyone are added together and the total amount goes to an account controlled by the app owner.
+            After the cricket match is over, the program checks which team won and how many people placed bets on that team. If everyone who bet chose the winning team, then they all get their money back without any extra bonus. But if some people picked the wrong team, then half of the money that was lost goes towards bonuses for the winning team.
+            The bonus money is extra money on top of what the winning bettors originally bet. However, the program takes a small percentage of this bonus money as a fee. The refunds for the winning bettors, including the bonus money, can't be more than twice the original bet amount.
+            If someone picked the losing team, then they only get back half of what they bet. The money is taken from the app owner's account and given back to the bettors. The amount of money left in the app owner's account after all the refunds are given out is the profit they made from running the betting app.
+            </div>
             
             </div>
             

@@ -15,7 +15,7 @@ const Navbar = () => {
                         <p><a href="/home">Home</a></p>
                         <p><a href="/aboutus">About Us</a></p>
                         <p><a href="/faqs">FAQs</a></p>
-                        <p><a href="#help">Help</a></p>
+                        <p><a href="/help">Help</a></p>
                     </div>
                 </div>
                 <div className="crickbet__navbar-menu">
@@ -28,7 +28,7 @@ const Navbar = () => {
                                 <p><a href="/home">Home</a></p>
                                 <p><a href="/aboutus">About Us</a></p>
                                 <p><a href="/faqs">FAQs</a></p>
-                                <p><a href="#help">Help</a></p>
+                                <p><a href="/help">Help</a></p>
                             </div>
                             <div className="crickbet__navbar-menu_container-links-sign">
                                 <button onClick={onsubmit} type="button">Connect to Metamask</button>

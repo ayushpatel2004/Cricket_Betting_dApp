@@ -68,3 +68,11 @@
     font-size: 4rem;
     font-family: var(--font-family);
   }
+
+  .rudy {
+    object-fit: cover;
+  }
+
+  .shreya {
+    object-fit: cover;
+  }

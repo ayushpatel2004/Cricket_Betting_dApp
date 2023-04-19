@@ -1,0 +1,324 @@
+.crickbet__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6rem;
+}
+
+.crickbet__navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.crickbet__navbar-links_logo {
+    margin-right: 2rem;
+}
+
+.crickbet__navbar-links_logo img {
+    width: 62.56px;
+    height: 16.02px;
+}
+
+.crickbet__navbar-links_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.crickbet__navbar-sign {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.crickbet__navbar-links_container p,
+.crickbet__navbar-sign p,
+.crickbet__navbar-menu_container p {
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin: 0 1rem;
+    cursor: pointer;
+    background-color: #AE67FA;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.crickbet__navbar-links_container p:hover {
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin: 0 1rem;
+    cursor: pointer;
+    background-color: #FF4C4C;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.crickbet__navbar-sign button,
+.crickbet__navbar-menu_container button {
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background: #FF4C4C;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.crickbet__navbar-menu {
+    margin-left: 1rem;
+    display: none;
+    position: relative;
+}
+
+.crickbet__navbar-menu svg {
+    cursor: pointer;
+}
+
+.crickbet__navbar-menu_container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    text-align: end;
+    background: var(--color-footer);
+    padding: 2rem;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    margin-top: 1rem;
+    min-width: 210px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0,0, 0,0.2);
+}
+
+.crickbet__navbar-menu_container p {
+    margin: 1rem 0;
+}
+
+.crickbet__navbar-menu_container-links-sign {
+    display: none;
+}
+
+@media screen and (max-width: 1050px) {
+    .crickbet__navbar-links_container {
+        display: none;
+    }
+
+    .crickbet__navbar-menu {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .crickbet__navbar {
+        padding: 2rem 4rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .crickbet__navbar {
+        padding: 2rem;
+    }
+
+    .crickbet__navbar-sign {
+        display: none;
+    }
+
+    .crickbet__navbar-menu_container {
+        top: 20px;
+    }
+
+    .crickbet__navbar-menu_container-links-sign {
+        display: block;
+    }
+}
+
+.crickbet__header {
+    display: flex;
+    flex-direction: row;
+}
+
+.crickbet__header-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 5rem;
+}
+
+.crickbet__header-content h1 {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 62px;
+    line-height: 75px;
+    letter-spacing: -0.04em;
+}
+
+.crickbet__header-content p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--color-text);
+    margin-top: 1.5rem;
+}
+
+.crickbet__header-content__input {
+    width: 100%;
+    margin: 2rem 0 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.crickbet__header-content__input input {
+    flex: 2;
+    width: 100%;
+    min-height: 50px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    background: var(--color-footer);
+    border: 2px solid var(--color-footer);
+    padding: 0 1rem;
+    outline: none;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.crickbet__header-content__input button {
+    flex: 0.6;
+    width: 100%;
+    min-height: 50px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    background: #FF4820;
+    border: 2px solid #FF4820;
+    padding: 0 1rem;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.crickbet__header-content__people {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 2rem;
+}
+
+.crickbet__header-content__people img {
+    width: 181.79px;
+    height: 38px;
+}
+
+.crickbet__header-content__people p {
+    margin: 0 0 0 1rem;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 38px;
+    color: #fff;
+    text-align: center;
+}
+
+.crickbet__header-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crickbet__header-image img {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1050px) {
+    .crickbet__header {
+        flex-direction: column;
+    }
+
+    .crickbet__header-content {
+        margin: 0 0 3rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .crickbet__header-content h1 {
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    .crickbet__header-content p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .crickbet__header-content__people {
+        flex-direction: column;
+    }
+
+    .crickbet__header-content__people p {
+        margin: 0;
+    }
+
+    .crickbet__header-content__input input,
+    .crickbet__header-content__input button {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .crickbet__header-content h1 {
+        font-size: 36px;
+        line-height: 48px;
+    }
+
+    .crickbet__header-content p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .crickbet__header-content__input input,
+    .crickbet__header-content__input button {
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+.github {
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background: #FF4C4C;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
