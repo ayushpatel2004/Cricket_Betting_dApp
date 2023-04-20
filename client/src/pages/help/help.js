@@ -1,19 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import logo from '../../assets/LOGO2.svg';
 import './help.css';
-import { useNavigate } from "react-router-dom";
-import { WrapperContext } from '../../context/wrappercontext';
 
 const Landing = () => {
   	const [toggleMenu, setToggleMenu] = useState(false);
-	const navigate = useNavigate();
   	return (
         <>
             <div className="crickbet__navbar">
                 <div className="crickbet__navbar-links">
                     <div className="crickbet__navbar-links_logo">
-                        <img src={logo} />
+                        <img src={logo} alt=""/>
                     </div>
                     <div className="crickbet__navbar-links_container">
                         <p><a href="/home">Home</a></p>
