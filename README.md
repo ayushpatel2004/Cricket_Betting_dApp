@@ -55,13 +55,13 @@ Cricket Betting dApp is a decentralized application for betting on cricket match
 ## Installation
 1. Clone the repository.
 2. To access admin interface :-
-   a. Move to admin directory by `cd admin`.
-   b. Install dependencies by running `npm install`.
-   c. Start the application by running `npm start`.
+   * Move to admin directory by `cd admin`.
+   * Install dependencies by running `npm install`.
+   * Start the application by running `npm start`.
 3. To access client interface :-
-   a. Move to client directory by `cd client`.
-   b. Install dependencies by running `npm install`.
-   c. Start the application by running `npm start`.
+   * Move to client directory by `cd client`.
+   * Install dependencies by running `npm install`.
+   * Start the application by running `npm start`.
 
 ## Usage
 1. Connect your Ethereum wallet to the application.
